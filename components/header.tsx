@@ -45,6 +45,12 @@ export function Header() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+          >
+            JOIN TODAY
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -71,6 +77,13 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href="/contact"
+              className="block w-full bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors text-center"
+              onClick={() => setIsOpen(false)}
+            >
+              JOIN TODAY
+            </Link>
           </div>
         </div>
       )}

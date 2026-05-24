@@ -1,158 +1,141 @@
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
-import { ArrowRight, Clock, BarChart3, Users, Trophy } from 'lucide-react'
+import Image from 'next/image'
 
 export const metadata = {
-  title: 'Mock Interviews | Chatura Solutions',
-  description: 'Practice with industry experts and gain confidence for your interviews with our comprehensive mock interview services.',
+  title: 'Mock Interview | Chatura Solutions',
+  description: 'Practice real interview questions with peers in a collaborative environment. Get live feedback from experts.',
 }
 
-export default function MockInterview() {
-  const interviewTypes = [
-    {
-      title: 'Technical Interviews',
-      description: 'Prepare for coding problems, system design, and technical depth questions.',
-      icon: BarChart3,
-    },
-    {
-      title: 'Behavioral Interviews',
-      description: 'Master communication skills and learn to tell compelling career stories.',
-      icon: Users,
-    },
-    {
-      title: 'HR Rounds',
-      description: 'Get ready for HR screening and final round interviews.',
-      icon: Trophy,
-    },
-  ]
-
-  const benefits = [
-    'Real-world interview scenarios',
-    'Expert feedback and guidance',
-    'Personalized improvement areas',
-    'Multiple interview formats',
-    'Flexible scheduling',
-    'Record and review sessions',
-  ]
-
+export default function MockInterviewPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <Header />
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">
-            Practice Interviews with Industry Experts
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-balance">
-            Gain confidence and master your interview skills with realistic mock interview sessions conducted by professionals who have hired for top companies.
+      <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Subheading */}
+          <p className="text-center text-gray-600 text-base md:text-lg mb-4">
+            Stop preparing alone
           </p>
-        </div>
-      </section>
 
-      {/* Interview Types */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Interview Types We Offer</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {interviewTypes.map((type, index) => {
-            const Icon = type.icon
-            return (
-              <div key={index} className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center mb-6">
-                  <Icon className="text-white" size={24} />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{type.title}</h3>
-                <p className="text-muted-foreground">{type.description}</p>
+          {/* Main Heading */}
+          <h1 className="text-center text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+            Get Real <span className="bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent">Interview Practice</span>
+          </h1>
+
+          {/* Description */}
+          <p className="text-center max-w-3xl mx-auto text-gray-700 text-lg md:text-xl mb-12 leading-relaxed">
+            Acing job interviews requires many skills: problem-solving, communication, product sensibility, and strong technical aptitude. There&apos;s one certain way to get dramatically better: <span className="font-semibold">Practicing Live Interviews.</span>
+          </p>
+
+          {/* Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column */}
+            <div className="flex flex-col justify-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-purple-600 mb-6">
+                Practice mock interviews with peers
+              </h2>
+              <p className="text-gray-700 text-lg mb-8 leading-relaxed">
+                Join thousands of tech candidates practicing interviews to land jobs. Practice real questions over video chat in a collaborative environment and get helpful feedback.
+              </p>
+              <div>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center border-2 border-cyan-500 text-cyan-500 px-6 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition-colors uppercase tracking-wider"
+                >
+                  SCHEDULE NOW
+                </Link>
               </div>
-            )
-          })}
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="bg-card border-y border-border py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-foreground mb-8">Why Practice with Us?</h2>
-              <ul className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-primary-foreground text-sm font-bold">✓</span>
-                    </div>
-                    <span className="text-foreground font-medium">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
-            <div className="bg-gradient-to-br from-blue-600/20 to-blue-700/20 rounded-lg p-8 border border-blue-200/30">
-              <Clock className="text-primary mb-4" size={32} />
-              <h3 className="text-2xl font-bold text-foreground mb-4">Ready to Interview?</h3>
-              <p className="text-muted-foreground mb-6">
-                Schedule your mock interview session with our expert interviewers and start your journey to interview success.
-              </p>
-              <p className="text-sm text-muted-foreground mb-6">
-                <strong>Note:</strong> Use the scheduling link below to book your preferred time slot. Our team will send you session details via email.
-              </p>
-              <a
-                href="https://calendly.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity w-full"
-              >
-                Schedule Your Interview Now <ArrowRight size={20} />
-              </a>
-              <p className="text-xs text-muted-foreground mt-4 text-center">
-                You can also email us at interviews@chaturasolutions.com
-              </p>
+
+            {/* Right Column - Image with Form Overlay */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-purple-200 to-purple-100 p-8 aspect-square flex items-center justify-center">
+                {/* Form Overlay */}
+                <div className="absolute top-8 right-8 bg-gray-900 text-white px-4 py-2 rounded-lg flex items-center gap-2 z-10 text-sm font-semibold">
+                  <span>👤</span>
+                  Interview Preparation Hub
+                </div>
+
+                {/* Form Fields */}
+                <div className="absolute bottom-8 right-8 space-y-3 z-10">
+                  <div className="bg-white rounded-lg px-4 py-2 shadow-lg w-40">
+                    <p className="text-gray-700 text-sm font-medium">Position</p>
+                  </div>
+                  <div className="bg-white rounded-lg px-4 py-2 shadow-lg w-40">
+                    <p className="text-gray-700 text-sm font-medium">Company</p>
+                  </div>
+                  <div className="bg-white rounded-lg px-4 py-2 shadow-lg w-40">
+                    <p className="text-gray-700 text-sm font-medium">Job Description</p>
+                  </div>
+                </div>
+
+                {/* Person Placeholder */}
+                <div className="relative z-5">
+                  <Image
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop"
+                    alt="Professional interviewer"
+                    width={300}
+                    height={400}
+                    className="rounded-lg object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">How It Works</h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {[
-            { num: '1', title: 'Schedule', desc: 'Book your preferred interview slot' },
-            { num: '2', title: 'Prepare', desc: 'Receive interview guidelines and tips' },
-            { num: '3', title: 'Interview', desc: 'Participate in a real-world mock session' },
-            { num: '4', title: 'Feedback', desc: 'Get detailed feedback and improvement areas' },
-          ].map((step, index) => (
-            <div key={index} className="text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold">{step.num}</span>
-              </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
-              <p className="text-muted-foreground">{step.desc}</p>
+      {/* Why Choose Section */}
+      <section className="bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-900">Why Choose Us?</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Feature Card 1 */}
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-4xl mb-4">🎯</div>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Real-world Practice</h3>
+              <p className="text-gray-600">Practice with actual interview questions asked by top tech companies.</p>
             </div>
-          ))}
+
+            {/* Feature Card 2 */}
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-4xl mb-4">👥</div>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Peer Community</h3>
+              <p className="text-gray-600">Connect with thousands of tech candidates on the same journey.</p>
+            </div>
+
+            {/* Feature Card 3 */}
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-4xl mb-4">💡</div>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Expert Feedback</h3>
+              <p className="text-gray-600">Get detailed feedback from experienced interviewers after each session.</p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Start Your Interview Preparation</h2>
-          <p className="text-blue-100 text-lg mb-8">Limited slots available! Book your session today.</p>
+      <section className="bg-gradient-to-r from-cyan-600 to-teal-600 py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Ace Your Interviews?</h2>
+          <p className="text-cyan-100 text-lg mb-8">Join thousands of professionals who are already improving their interview skills.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://calendly.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-            >
-              Schedule Now <ArrowRight size={20} />
-            </a>
             <Link
               href="/contact"
+              className="inline-flex items-center justify-center gap-2 bg-white text-cyan-600 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition-colors"
+            >
+              Schedule Now
+            </Link>
+            <Link
+              href="/"
               className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
             >
-              Contact Us
+              Back to Home
             </Link>
           </div>
         </div>
