@@ -134,7 +134,7 @@ export default function EducationalConsultation() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="h-[400px]">
             <DestinationCard
-              imageUrl="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=500&auto=format&fit=crop"
+              imageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Front_view_of_Statue_of_Liberty_%28cropped%29.jpg/960px-Front_view_of_Statue_of_Liberty_%28cropped%29.jpg"
               location="United States"
               flag="🇺🇸"
               stats="1,250+ Students"
@@ -154,7 +154,7 @@ export default function EducationalConsultation() {
           </div>
           <div className="h-[400px]">
             <DestinationCard
-              imageUrl="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&auto=format&fit=crop"
+              imageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/1280px-Moraine_Lake_17092005.jpg"
               location="Canada"
               flag="🇨🇦"
               stats="520+ Students"
@@ -289,11 +289,10 @@ export default function EducationalConsultation() {
 
             {message && (
               <div
-                className={`p-4 rounded-lg text-sm ${
-                  message.includes('submitted')
+                className={`p-4 rounded-lg text-sm ${message.includes('submitted')
                     ? 'bg-green-50 text-green-800 border border-green-200'
                     : 'bg-red-50 text-red-800 border border-red-200'
-                }`}
+                  }`}
               >
                 {message}
               </div>
