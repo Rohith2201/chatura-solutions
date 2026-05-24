@@ -4,7 +4,6 @@ import { Gallery6 } from '@/components/gallery6'
 import HeroSection from '@/components/hero-section-9'
 import { BouncyCardsFeatures } from '@/components/bounce-card-features'
 import { AnimatedTestimonials } from '@/components/animated-testimonials'
-import TestimonialsSection from '@/components/ui/testimonials-section'
 import Link from 'next/link'
 import { ArrowRight, Users, Briefcase, Link as LinkIcon } from 'lucide-react'
 
@@ -221,30 +220,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* New Testimonials Section */}
-      <TestimonialsSection />
-
-      {/* Compact CTA Section */}
-      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto bg-gradient-to-r from-cyan-600 to-teal-600 rounded-2xl p-8 md:p-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Transform Your Career?</h2>
-          <p className="text-cyan-100 text-base md:text-lg mb-6">Join thousands of professionals who have advanced their careers with Chatura Solutions.</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+      {/* CTA Section */}
+      <section className="bg-gradient-to-r from-cyan-600 to-teal-600 py-20 md:py-32">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Career?</h2>
+          <p className="text-cyan-100 text-lg mb-8">Join thousands of professionals who have advanced their careers with Chatura Solutions.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/educational-consultation"
-              className="inline-flex items-center justify-center gap-2 bg-white text-cyan-600 px-6 py-2 rounded-lg font-semibold hover:bg-cyan-50 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-white text-cyan-600 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition-colors"
             >
-              Schedule Consultation <ArrowRight size={18} />
+              Schedule Consultation <ArrowRight size={20} />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white/10 transition-colors"
+              className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
             >
               Get in Touch
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <AnimatedTestimonials
+        title="Loved by our students"
+        subtitle="Thousands of professionals have transformed their careers with Chatura Solutions. Here&apos;s what they have to say."
+        badgeText="Success Stories"
+        testimonials={testimonials}
+        autoRotateInterval={6000}
+      />
 
       <Footer />
     </div>
