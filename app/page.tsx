@@ -3,6 +3,7 @@ import { Footer } from '@/components/footer'
 import { Gallery6 } from '@/components/gallery6'
 import HeroSection from '@/components/hero-section-9'
 import { BouncyCardsFeatures } from '@/components/bounce-card-features'
+import { AnimatedTestimonials } from '@/components/animated-testimonials'
 import Link from 'next/link'
 import { ArrowRight, Users, Briefcase, Link as LinkIcon } from 'lucide-react'
 
@@ -55,6 +56,39 @@ export default function Home() {
       description: 'Always available to answer your questions and concerns',
       gradient: 'bg-gradient-to-br from-cyan-400 to-sky-400',
       textColor: 'text-sky-50'
+    },
+  ]
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Raj Kumar",
+      role: "Software Engineer",
+      company: "Google",
+      content:
+        "Chatura Solutions helped me crack my Google interview. The mock interviews were incredibly realistic and the feedback from the mentors was invaluable. I landed my dream job!",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    },
+    {
+      id: 2,
+      name: "Priya Sharma",
+      role: "Product Manager",
+      company: "Microsoft",
+      content:
+        "The upskilling courses at Chatura Solutions are comprehensive and taught by industry experts. I was able to transition from engineering to product management smoothly.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    },
+    {
+      id: 3,
+      name: "Arjun Patel",
+      role: "MBA Student",
+      company: "IIM Ahmedabad",
+      content:
+        "The educational consultation service helped me choose the right MBA program and craft my application strategy. I got accepted to my top choice!",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
     },
   ]
 
@@ -164,7 +198,7 @@ export default function Home() {
       <BouncyCardsFeatures features={bounceCardFeatures} />
 
       {/* FAQs Section */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Frequently Asked Questions</h2>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
@@ -187,7 +221,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-cyan-600 to-teal-600 py-4 md:py-6">
+      <section className="bg-gradient-to-r from-cyan-600 to-teal-600 py-20 md:py-32">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Career?</h2>
           <p className="text-cyan-100 text-lg mb-8">Join thousands of professionals who have advanced their careers with Chatura Solutions.</p>
@@ -207,6 +241,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <AnimatedTestimonials
+        title="Loved by our students"
+        subtitle="Thousands of professionals have transformed their careers with Chatura Solutions. Here&apos;s what they have to say."
+        badgeText="Success Stories"
+        testimonials={testimonials}
+        autoRotateInterval={6000}
+      />
 
       <Footer />
     </div>
