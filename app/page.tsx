@@ -3,6 +3,7 @@ import { Footer } from '@/components/footer'
 import { Gallery6 } from '@/components/gallery6'
 import HeroSection from '@/components/hero-section-9'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, CheckCircle2, Users, Briefcase, Link as LinkIcon } from 'lucide-react'
 
 export default function Home() {
@@ -67,6 +68,17 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+
+      {/* Logo Section */}
+      <section className="flex justify-center py-12">
+        <Image 
+          src="/logo.png" 
+          alt="Chatura Solutions LLP" 
+          width={250} 
+          height={80}
+          className="h-auto"
+        />
+      </section>
 
       {/* Hero Section */}
       <HeroSection

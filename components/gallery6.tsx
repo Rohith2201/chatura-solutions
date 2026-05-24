@@ -1,12 +1,9 @@
 'use client'
 
-import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { ArrowUpRight } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
 import {
   Carousel,
-  CarouselApi,
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel'
@@ -71,70 +68,26 @@ const Gallery6 = ({
     },
   ],
 }: Gallery6Props) => {
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>()
-  const [canScrollPrev, setCanScrollPrev] = useState(false)
-  const [canScrollNext, setCanScrollNext] = useState(false)
-
-  useEffect(() => {
-    if (!carouselApi) {
-      return
-    }
-    const updateSelection = () => {
-      setCanScrollPrev(carouselApi.canScrollPrev())
-      setCanScrollNext(carouselApi.canScrollNext())
-    }
-    updateSelection()
-    carouselApi.on('select', updateSelection)
-    return () => {
-      carouselApi.off('select', updateSelection)
-    }
-  }, [carouselApi])
-
   return (
     <section className="py-32">
       <div className="container">
-        <div className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16">
+        <div className="mb-8 flex flex-col items-center justify-center text-center md:mb-14 lg:mb-16">
           <div>
             <h2 className="mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
               {heading}
             </h2>
             <a
               href={demoUrl}
-              className="group flex items-center gap-1 text-sm font-medium md:text-base lg:text-lg"
+              className="group inline-flex items-center gap-1 text-sm font-medium md:text-base lg:text-lg"
             >
               Book a demo
               <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
-          <div className="mt-8 flex shrink-0 items-center justify-start gap-2">
-            <Button
-              size="icon"
-              variant="outline"
-              onClick={() => {
-                carouselApi?.scrollPrev()
-              }}
-              disabled={!canScrollPrev}
-              className="disabled:pointer-events-auto"
-            >
-              <ArrowLeft className="size-5" />
-            </Button>
-            <Button
-              size="icon"
-              variant="outline"
-              onClick={() => {
-                carouselApi?.scrollNext()
-              }}
-              disabled={!canScrollNext}
-              className="disabled:pointer-events-auto"
-            >
-              <ArrowRight className="size-5" />
-            </Button>
-          </div>
         </div>
       </div>
-      <div className="w-full">
+      <div className="flex justify-center">
         <Carousel
-          setApi={setCarouselApi}
           opts={{
             breakpoints: {
               '(max-width: 768px)': {
@@ -142,11 +95,11 @@ const Gallery6 = ({
               },
             },
           }}
-          className="relative left-[-1rem]"
+          className="w-full max-w-6xl"
         >
-          <CarouselContent className="-mr-4 ml-8 2xl:ml-[max(8rem,calc(50vw-700px+1rem))] 2xl:mr-[max(0rem,calc(50vw-700px-1rem))]">
+          <CarouselContent className="flex justify-center gap-4">
             {items.map((item) => (
-              <CarouselItem key={item.id} className="pl-4 md:max-w-[452px]">
+              <CarouselItem key={item.id} className="basis-full md:basis-1/2 lg:basis-1/3 pl-0">
                 <a
                   href={item.url}
                   className="group flex flex-col justify-between"
