@@ -2,6 +2,7 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
 import Image from 'next/image'
+import StackingCardComponent from '@/components/ui/stacking-card'
 
 export const metadata = {
   title: 'Mock Interview | Chatura Solutions',
@@ -133,6 +134,37 @@ export default function MockInterviewPage() {
           </div>
         </div>
       </section>
+
+      {/* Why Choose Us Section */}
+      <StackingCardComponent
+        title="Why Choose Us?"
+        projects={[
+          {
+            title: 'Expert Interviewers',
+            description: 'Practice with seasoned professionals who have conducted hundreds of interviews at top tech companies. Gain insights into what hiring managers really look for.',
+            link: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&auto=format&fit=crop',
+            color: '#06b6d4',
+          },
+          {
+            title: 'Real Interview Questions',
+            description: 'Access a curated database of actual interview questions asked by FAANG and other top companies. Prepare for the exact challenges you&apos;ll face.',
+            link: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&auto=format&fit=crop',
+            color: '#0891b2',
+          },
+          {
+            title: 'Personalized Feedback',
+            description: 'Receive detailed, actionable feedback after each session. Our experts highlight your strengths and provide specific areas for improvement.',
+            link: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&auto=format&fit=crop',
+            color: '#06a8d4',
+          },
+          {
+            title: 'Supportive Community',
+            description: 'Join thousands of candidates on the same journey. Share experiences, tips, and support each other in achieving your career goals.',
+            link: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&auto=format&fit=crop',
+            color: '#0b7ab4',
+          },
+        ]}
+      />
 
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-cyan-600 to-teal-600 py-20 px-4 sm:px-6 lg:px-8">
