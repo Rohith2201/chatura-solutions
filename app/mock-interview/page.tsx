@@ -56,7 +56,7 @@ export default function MockInterviewPage() {
             {/* Right Column - Image Only */}
             <div className="flex justify-center">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-540x700-X5EU7tvyrUtRj1VSi8lUM58dWCMYFd.webp"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-R1N3iCEXYHbrVZGWCJNKgdmm7C6Rdd.webp"
                 alt="Person preparing for interview at laptop"
                 width={300}
                 height={420}
