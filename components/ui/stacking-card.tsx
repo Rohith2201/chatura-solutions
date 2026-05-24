@@ -92,7 +92,7 @@ const Component = forwardRef<HTMLSection, ComponentRootProps>(({ projects, title
     <ReactLenis root>
       <section className='bg-white' ref={ref}>
         <>
-          <section className='text-black h-[50vh] w-full bg-white grid place-content-center' ref={container}>
+          <section className='text-black h-auto py-8 w-full bg-white grid place-content-center' ref={container}>
             <h1 className='2xl:text-7xl text-5xl px-8 font-bold text-center tracking-tight leading-[120%]'>
               {title || 'Why Choose Us?'}
             </h1>

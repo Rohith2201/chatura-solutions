@@ -135,6 +135,20 @@ export default function MockInterviewPage() {
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section className="bg-gradient-to-r from-blue-900 to-blue-800 py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Ace Your Interviews?</h2>
+          <p className="text-blue-100 text-lg mb-8">Join thousands of professionals who are already improving their interview skills with our expert guidance.</p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+          >
+            Schedule Your Mock Interview
+          </Link>
+        </div>
+      </section>
+
       {/* Why Choose Us Section */}
       <StackingCardComponent
         title="Why Choose Us?"
