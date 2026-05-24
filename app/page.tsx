@@ -1,8 +1,9 @@
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { Gallery6 } from '@/components/gallery6'
+import HeroSection from '@/components/hero-section-9'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Users, Briefcase, Link as LinkIcon } from 'lucide-react'
 
 export default function Home() {
   const servicesGallery = [
@@ -68,30 +69,48 @@ export default function Home() {
       <Header />
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 text-balance">
-            Your Path to Career Success Starts Here
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-balance">
-            Upskill, practice, and get guidance from industry experts. Join thousands of successful professionals who transformed their careers with Chatura Solutions.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/educational-consultation"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity"
-            >
-              Get Consultation <ArrowRight size={20} />
-            </Link>
-            <Link
-              href="/mock-interview"
-              className="inline-flex items-center justify-center gap-2 border border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-primary/5 transition-colors"
-            >
-              Schedule Mock Interview
-            </Link>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title={
+          <>
+            A new way to learn <br /> & get knowledge
+          </>
+        }
+        subtitle="EduFlex is here for you with various courses & materials from skilled tutors all around the world."
+        actions={[
+          {
+            text: 'Join the Class',
+            href: '#',
+            variant: 'default',
+          },
+          {
+            text: 'Learn more',
+            href: '#',
+            variant: 'outline',
+          },
+        ]}
+        stats={[
+          {
+            value: '15,2K',
+            label: 'Active students',
+            icon: <Users className="h-5 w-5 text-muted-foreground" />,
+          },
+          {
+            value: '4,5K',
+            label: 'Tutors',
+            icon: <Briefcase className="h-5 w-5 text-muted-foreground" />,
+          },
+          {
+            value: 'Resources',
+            label: '',
+            icon: <LinkIcon className="h-5 w-5 text-muted-foreground" />,
+          },
+        ]}
+        images={[
+          'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop',
+          'https://plus.unsplash.com/premium_photo-1663054774427-55adfb2be76f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=900?q=80&w=2070&auto=format&fit=crop',
+        ]}
+      />
 
       {/* Mission & Vision Section */}
       <section className="bg-card border-y border-border py-16 md:py-24">

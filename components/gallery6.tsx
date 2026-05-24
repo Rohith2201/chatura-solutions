@@ -170,10 +170,6 @@ const Gallery6 = ({
                   <div className="mb-8 line-clamp-2 text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9">
                     {item.summary}
                   </div>
-                  <div className="flex items-center text-sm">
-                    Read more{' '}
-                    <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
-                  </div>
                 </a>
               </CarouselItem>
             ))}
