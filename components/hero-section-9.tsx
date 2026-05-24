@@ -91,28 +91,28 @@ const HeroSection = ({ title, subtitle, actions, stats, images, className }: Her
       <div className="container mx-auto grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-8">
         {/* Left Column: Text Content */}
         <motion.div
-          className="flex flex-col items-center text-center lg:items-start lg:text-left"
+          className="flex flex-col items-center text-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.h1
-            className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl"
+            className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl text-balance"
             variants={itemVariants}
           >
             {title}
           </motion.h1>
-          <motion.p className="mt-6 max-w-md text-lg text-muted-foreground" variants={itemVariants}>
+          <motion.p className="mt-6 max-w-lg text-lg text-muted-foreground text-balance text-center" variants={itemVariants}>
             {subtitle}
           </motion.p>
-          <motion.div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start" variants={itemVariants}>
+          <motion.div className="mt-8 flex flex-wrap justify-center gap-4" variants={itemVariants}>
             {actions.map((action, index) => (
               <Button key={index} onClick={() => handleAction(action)} variant={action.variant} size="lg" className={action.className}>
                 {action.text}
               </Button>
             ))}
           </motion.div>
-          <motion.div className="mt-12 flex flex-wrap justify-center gap-8 lg:justify-start" variants={itemVariants}>
+          <motion.div className="mt-12 flex flex-wrap justify-center gap-8" variants={itemVariants}>
             {stats.map((stat, index) => (
               <div key={index} className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted">{stat.icon}</div>
