@@ -3,7 +3,6 @@ import { Footer } from '@/components/footer'
 import { Gallery6 } from '@/components/gallery6'
 import HeroSection from '@/components/hero-section-9'
 import Link from 'next/link'
-import Image from 'next/image'
 import { ArrowRight, CheckCircle2, Users, Briefcase, Link as LinkIcon } from 'lucide-react'
 
 export default function Home() {
@@ -68,17 +67,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-
-      {/* Logo Section */}
-      <section className="flex justify-center py-12">
-        <Image 
-          src="/logo.png" 
-          alt="Chatura Solutions LLP" 
-          width={250} 
-          height={80}
-          className="h-auto"
-        />
-      </section>
 
       {/* Hero Section */}
       <HeroSection
@@ -193,14 +181,14 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 py-16 md:py-24">
+      <section className="bg-gradient-to-r from-cyan-600 to-teal-600 py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Career?</h2>
-          <p className="text-blue-100 text-lg mb-8">Join thousands of professionals who have advanced their careers with Chatura Solutions.</p>
+          <p className="text-cyan-100 text-lg mb-8">Join thousands of professionals who have advanced their careers with Chatura Solutions.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/educational-consultation"
-              className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-white text-cyan-600 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition-colors"
             >
               Schedule Consultation <ArrowRight size={20} />
             </Link>

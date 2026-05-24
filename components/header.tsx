@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 
@@ -21,12 +22,16 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-background border-b border-border">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
-            <span className="text-white font-bold text-lg">C</span>
-          </div>
-          <span className="font-bold text-lg text-foreground">Chatura Solutions</span>
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-auto py-3 flex items-center justify-between">
+        <Link href="/" className="flex items-center">
+          <Image 
+            src="/logo.png" 
+            alt="Chatura Solutions LLP" 
+            width={180} 
+            height={60}
+            className="h-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}

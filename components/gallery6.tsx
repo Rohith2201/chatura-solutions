@@ -1,7 +1,5 @@
 'use client'
 
-import { ArrowUpRight } from 'lucide-react'
-
 import {
   Carousel,
   CarouselContent,
@@ -72,18 +70,9 @@ const Gallery6 = ({
     <section className="py-32">
       <div className="container">
         <div className="mb-8 flex flex-col items-center justify-center text-center md:mb-14 lg:mb-16">
-          <div>
-            <h2 className="mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
-              {heading}
-            </h2>
-            <a
-              href={demoUrl}
-              className="group inline-flex items-center gap-1 text-sm font-medium md:text-base lg:text-lg"
-            >
-              Book a demo
-              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-1" />
-            </a>
-          </div>
+          <h2 className="mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
+            {heading}
+          </h2>
         </div>
       </div>
       <div className="flex justify-center">
