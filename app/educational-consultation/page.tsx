@@ -5,6 +5,7 @@ import { Footer } from '@/components/footer'
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Globe, GraduationCap, Briefcase, ArrowRight, Users } from 'lucide-react'
+import { DestinationCard } from '@/components/ui/card-21'
 
 export default function EducationalConsultation() {
   const [formData, setFormData] = useState({
@@ -123,33 +124,74 @@ export default function EducationalConsultation() {
 
       {/* Our Students in Countries Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Students in Countries</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             We have successfully guided students to universities across the globe.
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center items-center gap-6">
-          {[
-            { name: 'United States', image: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=300&auto=format&fit=crop' },
-            { name: 'United Kingdom', image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=300&auto=format&fit=crop' },
-            { name: 'Canada', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&auto=format&fit=crop' },
-            { name: 'Australia', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&auto=format&fit=crop' },
-            { name: 'Germany', image: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=300&auto=format&fit=crop' },
-            { name: 'Singapore', image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=300&auto=format&fit=crop' },
-          ].map((country, index) => (
-            <div key={index} className="flex flex-col items-center gap-3">
-              <div className="border-2 border-foreground rounded-lg overflow-hidden hover:shadow-lg transition-shadow w-40 h-40">
-                <img
-                  src={country.image}
-                  alt={country.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <p className="text-center font-semibold text-foreground text-sm">{country.name}</p>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="h-[400px]">
+            <DestinationCard
+              imageUrl="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=500&auto=format&fit=crop"
+              location="United States"
+              flag="🇺🇸"
+              stats="1,250+ Students"
+              href="#"
+              themeColor="210 100% 50%"
+            />
+          </div>
+          <div className="h-[400px]">
+            <DestinationCard
+              imageUrl="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=500&auto=format&fit=crop"
+              location="United Kingdom"
+              flag="🇬🇧"
+              stats="680+ Students"
+              href="#"
+              themeColor="0 0% 20%"
+            />
+          </div>
+          <div className="h-[400px]">
+            <DestinationCard
+              imageUrl="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&auto=format&fit=crop"
+              location="Canada"
+              flag="🇨🇦"
+              stats="520+ Students"
+              href="#"
+              themeColor="0 100% 35%"
+            />
+          </div>
+          <div className="h-[400px]">
+            <DestinationCard
+              imageUrl="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=500&auto=format&fit=crop"
+              location="Australia"
+              flag="🇦🇺"
+              stats="410+ Students"
+              href="#"
+              themeColor="45 93% 47%"
+            />
+          </div>
+          <div className="h-[400px]">
+            <DestinationCard
+              imageUrl="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=500&auto=format&fit=crop"
+              location="Germany"
+              flag="🇩🇪"
+              stats="380+ Students"
+              href="#"
+              themeColor="11 100% 50%"
+            />
+          </div>
+          <div className="h-[400px]">
+            <DestinationCard
+              imageUrl="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&auto=format&fit=crop"
+              location="Singapore"
+              flag="🇸🇬"
+              stats="290+ Students"
+              href="#"
+              themeColor="39 100% 50%"
+            />
+          </div>
         </div>
       </section>
 
