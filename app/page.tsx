@@ -2,8 +2,9 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { Gallery6 } from '@/components/gallery6'
 import HeroSection from '@/components/hero-section-9'
+import { BouncyCardsFeatures } from '@/components/bounce-card-features'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Users, Briefcase, Link as LinkIcon } from 'lucide-react'
+import { ArrowRight, Users, Briefcase, Link as LinkIcon } from 'lucide-react'
 
 export default function Home() {
   const servicesGallery = [
@@ -30,11 +31,31 @@ export default function Home() {
     },
   ]
 
-  const features = [
-    { title: 'Expert Instructors', description: 'Learn from industry professionals with years of experience' },
-    { title: 'Personalized Guidance', description: 'One-on-one consultation tailored to your goals' },
-    { title: 'Proven Track Record', description: '10,000+ students placed in top companies' },
-    { title: '24/7 Support', description: 'Always available to answer your questions and concerns' },
+  const bounceCardFeatures = [
+    { 
+      title: 'Expert Instructors', 
+      description: 'Learn from industry professionals with years of experience',
+      gradient: 'bg-gradient-to-br from-cyan-400 to-teal-400',
+      textColor: 'text-teal-50'
+    },
+    { 
+      title: 'Personalized Guidance', 
+      description: 'One-on-one consultation tailored to your goals',
+      gradient: 'bg-gradient-to-br from-blue-400 to-cyan-400',
+      textColor: 'text-cyan-50'
+    },
+    { 
+      title: 'Proven Track Record', 
+      description: '10,000+ students placed in top companies',
+      gradient: 'bg-gradient-to-br from-teal-400 to-emerald-400',
+      textColor: 'text-emerald-50'
+    },
+    { 
+      title: '24/7 Support', 
+      description: 'Always available to answer your questions and concerns',
+      gradient: 'bg-gradient-to-br from-cyan-400 to-sky-400',
+      textColor: 'text-sky-50'
+    },
   ]
 
   const faqs = [
@@ -140,22 +161,7 @@ export default function Home() {
       />
 
       {/* Features Section */}
-      <section className="bg-card border-y border-border py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Why Choose Chatura?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="flex gap-4">
-                <CheckCircle2 className="text-primary flex-shrink-0" size={24} />
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BouncyCardsFeatures features={bounceCardFeatures} />
 
       {/* FAQs Section */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
