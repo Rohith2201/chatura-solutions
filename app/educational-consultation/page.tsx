@@ -4,7 +4,7 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
-import { Globe, GraduationCap, Briefcase, ArrowRight } from 'lucide-react'
+import { Globe, GraduationCap, Briefcase, ArrowRight, Users } from 'lucide-react'
 
 export default function EducationalConsultation() {
   const [formData, setFormData] = useState({
@@ -117,6 +117,72 @@ export default function EducationalConsultation() {
                 </div>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Students in Countries Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Students in Countries</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            We have successfully guided students to universities across the globe. See where our students are studying.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+          {/* Left side - Countries list */}
+          <div className="lg:col-span-1">
+            <div className="space-y-4">
+              {[
+                { name: 'United States', count: '1,250+ Students', flag: '🇺🇸' },
+                { name: 'United Kingdom', count: '680+ Students', flag: '🇬🇧' },
+                { name: 'Canada', count: '520+ Students', flag: '🇨🇦' },
+                { name: 'Australia', count: '410+ Students', flag: '🇦🇺' },
+                { name: 'Germany', count: '380+ Students', flag: '🇩🇪' },
+                { name: 'Singapore', count: '290+ Students', flag: '🇸🇬' },
+              ].map((country, index) => (
+                <div
+                  key={index}
+                  className="bg-card border border-border rounded-lg p-4 hover:shadow-lg transition-shadow"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl">{country.flag}</span>
+                    <div>
+                      <h3 className="text-lg font-bold text-foreground">{country.name}</h3>
+                      <p className="text-sm text-muted-foreground">{country.count}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right side - Map visualization */}
+          <div className="lg:col-span-2">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 rounded-lg p-8 flex items-center justify-center min-h-96">
+              <div className="text-center">
+                <Globe className="w-24 h-24 mx-auto text-blue-600 dark:text-blue-400 mb-6 opacity-80" />
+                <p className="text-2xl font-bold text-foreground mb-2">Global Reach</p>
+                <p className="text-muted-foreground max-w-sm">
+                  Our students are spread across 6 continents, attending top universities worldwide and achieving their dreams.
+                </p>
+                <div className="mt-8 grid grid-cols-3 gap-4">
+                  <div className="bg-white dark:bg-slate-800 rounded-lg p-4">
+                    <p className="text-2xl font-bold text-blue-600">4,130+</p>
+                    <p className="text-sm text-muted-foreground">Total Students</p>
+                  </div>
+                  <div className="bg-white dark:bg-slate-800 rounded-lg p-4">
+                    <p className="text-2xl font-bold text-blue-600">6</p>
+                    <p className="text-sm text-muted-foreground">Countries</p>
+                  </div>
+                  <div className="bg-white dark:bg-slate-800 rounded-lg p-4">
+                    <p className="text-2xl font-bold text-blue-600">98%</p>
+                    <p className="text-sm text-muted-foreground">Success Rate</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

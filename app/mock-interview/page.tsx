@@ -119,13 +119,13 @@ export default function MockInterviewPage() {
           {
             title: 'Expert Interviewers',
             description: 'Learn from seasoned professionals who have conducted hundreds of interviews at FAANG companies. Get insider tips on what hiring managers really look for and how to stand out.',
-            link: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop',
+            link: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&auto=format&fit=crop',
             color: '#06b6d4',
           },
           {
             title: 'Real Interview Questions',
             description: 'Access a comprehensive database of actual technical and behavioral questions from top companies. Practice with questions that match your target role and company.',
-            link: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&auto=format&fit=crop',
+            link: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&auto=format&fit=crop',
             color: '#0891b2',
           },
           {
