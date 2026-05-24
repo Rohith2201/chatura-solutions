@@ -1,24 +1,31 @@
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { Gallery6 } from '@/components/gallery6'
 import Link from 'next/link'
-import { ArrowRight, BookOpen, Award, Users, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
 export default function Home() {
-  const services = [
+  const servicesGallery = [
     {
-      icon: BookOpen,
+      id: 'item-1',
       title: 'Upskilling Courses',
-      description: 'Comprehensive courses designed to enhance your professional skills and expertise in your field.',
+      summary: 'Comprehensive courses designed to enhance your professional skills and expertise in your field. Master new technologies and advanced techniques with industry experts.',
+      url: '#',
+      image: '/images/services/upskilling.jpg',
     },
     {
-      icon: Award,
+      id: 'item-2',
       title: 'Mock Interviews',
-      description: 'Practice with industry experts and gain confidence for your actual interviews.',
+      summary: 'Practice with industry experts and gain confidence for your actual interviews. Get real-time feedback and personalized coaching to ace your next interview.',
+      url: '#',
+      image: '/images/services/mock-interview.jpg',
     },
     {
-      icon: Users,
+      id: 'item-3',
       title: 'Educational Consultation',
-      description: 'Personalized guidance for higher education selection and career path planning.',
+      summary: 'Personalized guidance for higher education selection and career path planning. Navigate university options and craft your perfect academic journey.',
+      url: '#',
+      image: '/images/services/consultation.jpg',
     },
   ]
 
@@ -107,29 +114,11 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-4">Our Services</h2>
-        <p className="text-muted-foreground text-center mb-12 text-lg">
-          Comprehensive solutions for your career growth
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const Icon = service.icon
-            return (
-              <div
-                key={index}
-                className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow"
-              >
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center mb-6">
-                  <Icon className="text-white" size={24} />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
-              </div>
-            )
-          })}
-        </div>
-      </section>
+      <Gallery6
+        heading="Our Services"
+        demoUrl="https://chaturasolutions.com"
+        items={servicesGallery}
+      />
 
       {/* Features Section */}
       <section className="bg-card border-y border-border py-16 md:py-24">
