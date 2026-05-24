@@ -3,6 +3,7 @@ import { Footer } from '@/components/footer'
 import Link from 'next/link'
 import Image from 'next/image'
 import StackingCardComponent from '@/components/ui/stacking-card'
+import TestimonialsSection from '@/components/testimonials'
 
 export const metadata = {
   title: 'Mock Interview | Chatura Solutions',
@@ -47,7 +48,7 @@ export default function MockInterviewPage() {
                   href="/contact"
                   className="inline-flex items-center justify-center border-2 border-cyan-500 text-cyan-500 px-6 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition-colors uppercase tracking-wider"
                 >
-                  SCHEDULE NOW
+                  Get Started
                 </Link>
               </div>
             </div>
@@ -135,20 +136,6 @@ export default function MockInterviewPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-800 py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Ace Your Interviews?</h2>
-          <p className="text-blue-100 text-lg mb-8">Join thousands of professionals who are already improving their interview skills with our expert guidance.</p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-          >
-            Schedule Your Mock Interview
-          </Link>
-        </div>
-      </section>
-
       {/* Why Choose Us Section */}
       <StackingCardComponent
         title="Why Choose Us?"
@@ -179,6 +166,25 @@ export default function MockInterviewPage() {
           },
         ]}
       />
+
+      {/* Testimonials Section */}
+      <section className="bg-white">
+        <TestimonialsSection />
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="bg-gradient-to-r from-blue-900 to-blue-800 py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Interview Skills?</h2>
+          <p className="text-blue-100 text-lg mb-8">Join our community of successful professionals today.</p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+          >
+            Schedule Now
+          </Link>
+        </div>
+      </section>
 
       <Footer />
     </div>
