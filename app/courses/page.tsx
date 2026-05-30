@@ -4,7 +4,8 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Calendar, Users, Zap, Star, Clock, User } from 'lucide-react'
+import { Calendar, Users, Zap, Star, Clock, User, Search, TrendingUp, Award, BookOpen } from 'lucide-react'
+import { HighlightCard } from '@/components/ui/card-5'
 
 interface AvailableBatch {
   id: string
@@ -53,6 +54,8 @@ export default function Courses() {
   const [courses, setCourses] = useState<CoursesData | null>(null)
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<'available' | 'previous'>('available')
+  const [searchQuery, setSearchQuery] = useState('')
+  const [filteredBatches, setFilteredBatches] = useState<AvailableBatch[]>([])
 
   useEffect(() => {
     const loadCourses = async () => {
@@ -61,6 +64,7 @@ export default function Courses() {
         if (response.ok) {
           const data = await response.json()
           setCourses(data)
+          setFilteredBatches(data.availableBatches)
         }
       } catch (error) {
         console.error('Error loading courses:', error)
@@ -71,6 +75,22 @@ export default function Courses() {
 
     loadCourses()
   }, [])
+
+  useEffect(() => {
+    if (courses && searchQuery.trim()) {
+      const query = searchQuery.toLowerCase()
+      const filtered = courses.availableBatches.filter(
+        (batch) =>
+          batch.courseTitle.toLowerCase().includes(query) ||
+          batch.description.toLowerCase().includes(query) ||
+          batch.instructor.toLowerCase().includes(query) ||
+          batch.topics.some((topic) => topic.toLowerCase().includes(query))
+      )
+      setFilteredBatches(filtered)
+    } else if (courses) {
+      setFilteredBatches(courses.availableBatches)
+    }
+  }, [searchQuery, courses])
 
   if (loading) {
     return (
@@ -115,8 +135,72 @@ export default function Courses() {
         </div>
       </section>
 
-      {/* Tabs */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Statistics Cards */}
+      {courses && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Platform Highlights</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <HighlightCard
+              title="Active Batches"
+              description="Upcoming courses ready for enrollment"
+              metricValue={`${courses.availableBatches.length}`}
+              metricLabel="Available Now"
+              buttonText="Explore"
+              onButtonClick={() => {
+                const section = document.querySelector('[data-available-section]')
+                section?.scrollIntoView({ behavior: 'smooth' })
+              }}
+              icon={<TrendingUp className="h-6 w-6" />}
+              color="blue"
+            />
+            <HighlightCard
+              title="Expert Instructors"
+              description="Industry professionals teaching the courses"
+              metricValue={`${new Set(courses.availableBatches.map((b) => b.instructor)).size}`}
+              metricLabel="Instructors"
+              buttonText="View"
+              onButtonClick={() => {}}
+              icon={<Award className="h-6 w-6" />}
+              color="violet"
+            />
+            <HighlightCard
+              title="Success Stories"
+              description="Previous batches with high completion rates"
+              metricValue={`${courses.previousBatches.length}`}
+              metricLabel="Completed"
+              buttonText="Learn"
+              onButtonClick={() => setActiveTab('previous')}
+              icon={<BookOpen className="h-6 w-6" />}
+              color="orange"
+            />
+            <HighlightCard
+              title="Student Satisfaction"
+              description="Average success rate of our programs"
+              metricValue={`${Math.round(courses.previousBatches.reduce((sum, b) => sum + b.successRate, 0) / courses.previousBatches.length)}%`}
+              metricLabel="Success Rate"
+              buttonText="Details"
+              onButtonClick={() => setActiveTab('previous')}
+              icon={<Star className="h-6 w-6" />}
+              color="default"
+            />
+          </div>
+        </section>
+      )}
+
+      {/* Tabs & Search */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" data-available-section>
+        <div className="mb-6">
+          <div className="relative">
+            <Search className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
+            <input
+              type="text"
+              placeholder="Search courses by title, instructor, or topic..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-4 py-2 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+          </div>
+        </div>
         <div className="flex gap-4 border-b border-border">
           <button
             onClick={() => setActiveTab('available')}
@@ -128,7 +212,7 @@ export default function Courses() {
           >
             <span className="flex items-center gap-2">
               <Zap size={20} />
-              Available Batches ({courses.availableBatches.length})
+              Available Batches ({filteredBatches.length})
             </span>
           </button>
           <button
@@ -150,8 +234,13 @@ export default function Courses() {
       {/* Available Batches */}
       {activeTab === 'available' && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {courses.availableBatches.map((batch) => {
+          {filteredBatches.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground text-lg">No courses match your search. Try adjusting your search terms.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {filteredBatches.map((batch) => {
               const levelColor = levelColors[batch.level] || levelColors['Beginner']
               return (
                 <div
@@ -246,8 +335,9 @@ export default function Courses() {
                   </div>
                 </div>
               )
-            })}
-          </div>
+              })}
+            </div>
+          )}
         </section>
       )}
 

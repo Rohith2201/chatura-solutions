@@ -17,7 +17,6 @@ export function Header() {
     { href: '/courses', label: 'Courses' },
     { href: '/mock-interview', label: 'Mock Interview' },
     { href: '/educational-consultation', label: 'Consultation' },
-    { href: '/blogs', label: 'Blogs' },
     { href: '/contact', label: 'Contact' },
   ]
 

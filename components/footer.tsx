@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react'
 
 export function Footer() {
@@ -8,12 +9,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand Section */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
-                <span className="text-white font-bold">C</span>
-              </div>
-              <span className="font-bold text-lg text-foreground">Chatura</span>
-            </div>
+            <Link href="/" className="inline-flex items-center gap-2 mb-4">
+              <Image 
+                src="/logo.png" 
+                alt="Chatura Solutions LLP" 
+                width={150} 
+                height={50}
+                className="h-auto"
+              />
+            </Link>
             <p className="text-muted-foreground text-sm">
               Empowering students and professionals with expert guidance for career advancement.
             </p>
@@ -29,6 +33,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/courses" className="text-muted-foreground hover:text-primary transition-colors">
+                  Courses
+                </Link>
+              </li>
+              <li>
                 <Link href="/mock-interview" className="text-muted-foreground hover:text-primary transition-colors">
                   Mock Interview
                 </Link>
@@ -39,8 +48,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/blogs" className="text-muted-foreground hover:text-primary transition-colors">
-                  Blogs
+                <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -51,16 +60,24 @@ export function Footer() {
             <h3 className="font-semibold text-foreground mb-4">Services</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <span className="text-muted-foreground">Upskilling Courses</span>
+                <Link href="/courses" className="text-muted-foreground hover:text-primary transition-colors">
+                  Upskilling Courses
+                </Link>
               </li>
               <li>
-                <span className="text-muted-foreground">Mock Interviews</span>
+                <Link href="/mock-interview" className="text-muted-foreground hover:text-primary transition-colors">
+                  Mock Interviews
+                </Link>
               </li>
               <li>
-                <span className="text-muted-foreground">Educational Consultation</span>
+                <Link href="/educational-consultation" className="text-muted-foreground hover:text-primary transition-colors">
+                  Educational Consultation
+                </Link>
               </li>
               <li>
-                <span className="text-muted-foreground">Career Guidance</span>
+                <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
+                  Career Guidance
+                </Link>
               </li>
             </ul>
           </div>
@@ -88,7 +105,7 @@ export function Footer() {
         {/* Social Links */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between">
           <p className="text-muted-foreground text-sm mb-4 md:mb-0">
-            © 2024 Chatura Solutions. All rights reserved.
+            © 2026 Chatura Solutions. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
