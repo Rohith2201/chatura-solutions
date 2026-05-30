@@ -138,8 +138,8 @@ export default function EducationalConsultation() {
             {/* Right Column - Image Only */}
             <div className="flex justify-center">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-R1N3iCEXYHbrVZGWCJNKgdmm7C6Rdd.webp"
-                alt="Students discussing university options"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bragging_img1-osXnCBdSr58avM2muxPMhkWJbb6wXi.webp"
+                alt="Student with notebook and educational materials"
                 width={450}
                 height={630}
                 className="rounded-lg object-cover"

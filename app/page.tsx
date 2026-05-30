@@ -4,6 +4,7 @@ import { Gallery6 } from '@/components/gallery6'
 import HeroSection from '@/components/hero-section-9'
 import { BouncyCardsFeatures } from '@/components/bounce-card-features'
 import { AnimatedTestimonials } from '@/components/animated-testimonials'
+import { BannerSystemDesign } from '@/components/ui/banner-system-design'
 import Link from 'next/link'
 import { ArrowRight, Users, Briefcase, Link as LinkIcon } from 'lucide-react'
 
@@ -121,6 +122,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
+      <BannerSystemDesign />
       <Header />
 
       {/* Hero Section */}
