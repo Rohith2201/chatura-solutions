@@ -1,0 +1,22 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "title": "University Selection",
+      "description": "Expert guidance in selecting universities that match your academic profile, career goals, and personal preferences.",
+      "icon": "GraduationCap"
+    },
+    {
+      "id": 2,
+      "title": "Application Support",
+      "description": "Comprehensive assistance with essay writing, application forms, and strategic positioning for top universities.",
+      "icon": "FileText"
+    },
+    {
+      "id": 3,
+      "title": "Interview Coaching",
+      "description": "Personalized interview preparation to help you ace admission interviews and stand out to admissions committees.",
+      "icon": "Users"
+    }
+  ]
+}

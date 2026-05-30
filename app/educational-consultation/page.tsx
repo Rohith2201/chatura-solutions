@@ -150,22 +150,40 @@ export default function EducationalConsultation() {
       </section>
 
       {/* Services */}
-      <section className="bg-card border-y border-border py-16 md:py-24">
+      <section className="bg-background py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Our Consultation Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const Icon = service.icon
-              return (
-                <div key={index} className="bg-background border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center mb-6">
-                    <Icon className="text-white" size={24} />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.description}</p>
+            {[
+              {
+                title: "University Selection",
+                description: "Expert guidance in selecting universities that match your academic profile, career goals, and personal preferences.",
+                image: "/images/university-selection.png"
+              },
+              {
+                title: "Application Support",
+                description: "Comprehensive assistance with essay writing, application forms, and strategic positioning for top universities.",
+                image: "/images/application-support.png"
+              },
+              {
+                title: "Interview Coaching",
+                description: "Personalized interview preparation to help you ace admission interviews and stand out to admissions committees.",
+                image: "/images/interview-coaching.png"
+              }
+            ].map((service, index) => (
+              <div key={index} className="rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                <div className="relative h-48 mb-4">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover rounded-lg"
+                  />
                 </div>
-              )
-            })}
+                <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
+                <p className="text-muted-foreground">{service.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -184,7 +202,7 @@ export default function EducationalConsultation() {
             <DestinationCard
               imageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Front_view_of_Statue_of_Liberty_%28cropped%29.jpg/960px-Front_view_of_Statue_of_Liberty_%28cropped%29.jpg"
               location="United States"
-              flag="🇺🇸"
+              flag="🇺��"
               stats="1,250+ Students"
               href="#"
               themeColor="210 100% 50%"
