@@ -150,38 +150,59 @@ export default function EducationalConsultation() {
       </section>
 
       {/* Services */}
-      <section className="bg-background py-16 md:py-24">
+      <section className="bg-gradient-to-b from-background to-background/50 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Our Consultation Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">Our Consultation Services</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Comprehensive support at every step of your higher education journey</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {[
               {
                 title: "University Selection",
                 description: "Expert guidance in selecting universities that match your academic profile, career goals, and personal preferences.",
-                image: "/images/university-selection.png"
+                image: "/images/university-selection.png",
+                icon: "🎓"
               },
               {
                 title: "Application Support",
                 description: "Comprehensive assistance with essay writing, application forms, and strategic positioning for top universities.",
-                image: "/images/application-support.png"
+                image: "/images/application-support.png",
+                icon: "📝"
               },
               {
                 title: "Interview Coaching",
                 description: "Personalized interview preparation to help you ace admission interviews and stand out to admissions committees.",
-                image: "/images/interview-coaching.png"
+                image: "/images/interview-coaching.png",
+                icon: "🎤"
               }
             ].map((service, index) => (
-              <div key={index} className="rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="relative h-48 mb-4">
+              <div 
+                key={index} 
+                className="group bg-card rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+              >
+                {/* Image Container */}
+                <div className="relative h-56 mb-6 overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover rounded-lg"
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
+
+                {/* Content Container */}
+                <div className="px-6 pb-6">
+                  <div className="flex items-start gap-3 mb-3">
+                    <span className="text-3xl">{service.icon}</span>
+                    <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">{service.title}</h3>
+                  </div>
+                  <p className="text-muted-foreground text-base leading-relaxed mb-4">{service.description}</p>
+                  
+                  {/* Bottom accent */}
+                  <div className="h-1 w-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full group-hover:w-full transition-all duration-300"></div>
+                </div>
               </div>
             ))}
           </div>
