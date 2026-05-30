@@ -162,19 +162,16 @@ export default function EducationalConsultation() {
                 title: "University Selection",
                 description: "Expert guidance in selecting universities that match your academic profile, career goals, and personal preferences.",
                 image: "/images/university-selection.png",
-                icon: "🎓"
               },
               {
                 title: "Application Support",
                 description: "Comprehensive assistance with essay writing, application forms, and strategic positioning for top universities.",
                 image: "/images/application-support.png",
-                icon: "📝"
               },
               {
                 title: "Interview Coaching",
                 description: "Personalized interview preparation to help you ace admission interviews and stand out to admissions committees.",
                 image: "/images/interview-coaching.png",
-                icon: "🎤"
               }
             ].map((service, index) => (
               <div 
