@@ -9,7 +9,25 @@ export async function POST(request: NextRequest) {
     // Validate required fields
     if (!name || !email || !phone || !education_level) {
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { error: 'Missing required fields: name, email, phone, and education_level are all required' },
+        { status: 400 }
+      )
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Please provide a valid email address' },
+        { status: 400 }
+      )
+    }
+
+    // Validate phone format (basic check)
+    const phoneRegex = /^[\d\s\-\+\(\)]+$/
+    if (!phoneRegex.test(phone)) {
+      return NextResponse.json(
+        { error: 'Please provide a valid phone number' },
         { status: 400 }
       )
     }
@@ -22,20 +40,33 @@ export async function POST(request: NextRequest) {
       .from('consultations')
       .insert([
         {
-          name,
-          email,
-          phone,
-          target_country,
-          target_university,
-          education_level,
+          name: name.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+          target_country: target_country?.trim() || null,
+          target_university: target_university?.trim() || null,
+          education_level: education_level.trim(),
         },
       ])
       .select()
 
     if (error) {
-      console.error('Database error:', error)
+      console.error('[v0] Database error:', {
+        code: error.code,
+        message: error.message,
+        details: error.details,
+      })
+      
+      // Provide more specific error messages
+      if (error.code === 'PGRST116') {
+        return NextResponse.json(
+          { error: 'The consultations table does not exist. Please create it first using the DATABASE_SETUP.md instructions.' },
+          { status: 500 }
+        )
+      }
+      
       return NextResponse.json(
-        { error: 'Failed to submit consultation form' },
+        { error: 'Failed to save consultation request. Please try again later.' },
         { status: 500 }
       )
     }
@@ -49,9 +80,10 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     )
   } catch (error) {
-    console.error('API error:', error)
+    console.error('[v0] API error:', error)
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: `Internal server error: ${errorMessage}` },
       { status: 500 }
     )
   }

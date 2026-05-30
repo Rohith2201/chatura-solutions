@@ -9,7 +9,16 @@ export async function POST(request: NextRequest) {
     // Validate required fields
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { error: 'Missing required fields: name, email, subject, and message are all required' },
+        { status: 400 }
+      )
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Please provide a valid email address' },
         { status: 400 }
       )
     }
@@ -22,18 +31,31 @@ export async function POST(request: NextRequest) {
       .from('contact_inquiries')
       .insert([
         {
-          name,
-          email,
-          subject,
-          message,
+          name: name.trim(),
+          email: email.trim(),
+          subject: subject.trim(),
+          message: message.trim(),
         },
       ])
       .select()
 
     if (error) {
-      console.error('Database error:', error)
+      console.error('[v0] Database error:', {
+        code: error.code,
+        message: error.message,
+        details: error.details,
+      })
+      
+      // Provide more specific error messages
+      if (error.code === 'PGRST116') {
+        return NextResponse.json(
+          { error: 'The contact_inquiries table does not exist. Please create it first using the DATABASE_SETUP.md instructions.' },
+          { status: 500 }
+        )
+      }
+      
       return NextResponse.json(
-        { error: 'Failed to submit contact form' },
+        { error: 'Failed to save contact inquiry. Please try again later.' },
         { status: 500 }
       )
     }
@@ -47,9 +69,10 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     )
   } catch (error) {
-    console.error('API error:', error)
+    console.error('[v0] API error:', error)
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: `Internal server error: ${errorMessage}` },
       { status: 500 }
     )
   }
