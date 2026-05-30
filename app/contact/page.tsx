@@ -3,13 +3,13 @@
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { useState } from 'react'
-import { createClient } from '@/lib/supabase/client'
 import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     subject: '',
     message: '',
   })
@@ -30,23 +30,25 @@ export default function Contact() {
     setMessage('')
 
     try {
-      const supabase = createClient()
-
-      const { error } = await supabase.from('contact_inquiries').insert([
-        {
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      ])
+        body: JSON.stringify(formData),
+      })
 
-      if (error) throw error
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit form')
+      }
 
       setMessage('Message sent successfully! We will get back to you soon.')
       setFormData({
         name: '',
         email: '',
+        phone: '',
         subject: '',
         message: '',
       })
@@ -151,6 +153,19 @@ export default function Contact() {
                   placeholder="john@example.com"
                 />
               </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-2">Phone Number</label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                placeholder="+1 (234) 567-8900"
+              />
             </div>
 
             <div>
