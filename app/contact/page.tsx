@@ -3,7 +3,6 @@
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { useState } from 'react'
-import { createClient } from '@/lib/supabase/client'
 import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react'
 
 export default function Contact() {
@@ -30,18 +29,19 @@ export default function Contact() {
     setMessage('')
 
     try {
-      const supabase = createClient()
-
-      const { error } = await supabase.from('contact_inquiries').insert([
-        {
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      ])
+        body: JSON.stringify(formData),
+      })
 
-      if (error) throw error
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit form')
+      }
 
       setMessage('Message sent successfully! We will get back to you soon.')
       setFormData({
