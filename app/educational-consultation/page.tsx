@@ -3,7 +3,6 @@
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { useState } from 'react'
-import { createClient } from '@/lib/supabase/client'
 import { Globe, GraduationCap, Briefcase, ArrowRight, Users } from 'lucide-react'
 import { DestinationCard } from '@/components/ui/card-21'
 import ConsultationTestimonials from '@/components/ui/consultation-testimonials'
@@ -54,20 +53,19 @@ export default function EducationalConsultation() {
     setMessage('')
 
     try {
-      const supabase = createClient()
-
-      const { error } = await supabase.from('consultations').insert([
-        {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          target_country: formData.target_country,
-          target_university: formData.target_university,
-          education_level: formData.education_level,
+      const response = await fetch('/api/consultation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      ])
+        body: JSON.stringify(formData),
+      })
 
-      if (error) throw error
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit form')
+      }
 
       setMessage('Consultation request submitted! We will contact you soon.')
       setFormData({
