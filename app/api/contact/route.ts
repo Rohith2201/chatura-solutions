@@ -81,8 +81,17 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('[v0] API error:', error)
     const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
+    
+    // Check if it's a configuration error
+    if (errorMessage.includes('environment variables') || errorMessage.includes('Supabase')) {
+      return NextResponse.json(
+        { error: 'Database configuration error. Please check your environment variables. See DATABASE_SETUP.md for instructions.' },
+        { status: 503 }
+      )
+    }
+    
     return NextResponse.json(
-      { error: `Internal server error: ${errorMessage}` },
+      { error: 'Internal server error. Please try again later.' },
       { status: 500 }
     )
   }

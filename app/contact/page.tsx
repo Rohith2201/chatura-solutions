@@ -112,7 +112,18 @@ export default function Contact() {
         body: JSON.stringify(formData),
       })
 
-      const data = await response.json()
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type')
+      let data
+
+      if (contentType && contentType.includes('application/json')) {
+        data = await response.json()
+      } else {
+        // If response is not JSON, it's likely an error page
+        const text = await response.text()
+        console.error('[v0] Non-JSON response:', text)
+        data = { error: 'Server error. Please try again later.' }
+      }
 
       if (!response.ok) {
         throw new Error(data.error || 'Failed to submit form')
@@ -131,7 +142,7 @@ export default function Contact() {
 
       setTimeout(() => setMessage(''), 5000)
     } catch (error) {
-      console.error('Error:', error)
+      console.error('[v0] Submit error:', error)
       setMessageType('error')
       setMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.')
     } finally {
