@@ -2,9 +2,21 @@
 
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { ContactMap } from '@/components/contact-map'
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
+import dynamic from 'next/dynamic'
 import { Mail, Phone, MapPin, Clock, ArrowRight, AlertCircle, CheckCircle } from 'lucide-react'
+
+// Dynamically import the map component to avoid window is not defined error during SSR
+const ContactMap = dynamic(() => import('@/components/contact-map').then(mod => ({ default: mod.ContactMap })), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full rounded-t-lg lg:rounded-lg bg-muted flex items-center justify-center" style={{ minHeight: '384px' }}>
+      <div className="text-center text-muted-foreground">
+        <p className="text-sm">Loading map...</p>
+      </div>
+    </div>
+  ),
+})
 
 interface FormErrors {
   name?: string
