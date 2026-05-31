@@ -96,7 +96,7 @@ function BannerSystemDesign() {
 
   return (
     <div className="w-full flex justify-center px-4 py-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-7xl bg-white border border-border rounded-2xl overflow-hidden">
+      <div className="w-full max-w-7xl bg-lime-200 border border-border rounded-2xl overflow-hidden">
         <div className="px-6 py-4 flex gap-2 md:items-center justify-between">
           <div className="flex grow gap-3 md:items-center">
             <div
