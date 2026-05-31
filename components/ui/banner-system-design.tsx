@@ -9,7 +9,9 @@ interface BannerData {
   subtitle: string
   ctaText: string
   ctaLink: string
-  daysFromNow: number
+  startDate?: string
+  endDate?: string
+  daysFromNow?: number
 }
 
 interface TimeLeft {
@@ -51,8 +53,17 @@ function BannerSystemDesign() {
     const calculateTimeLeft = () => {
       if (!bannerData) return
       
-      // Set to specified days from now
-      const saleEndDate = new Date(Date.now() + bannerData.daysFromNow * 24 * 60 * 60 * 1000)
+      let saleEndDate: Date
+      
+      // Use endDate if available, otherwise use daysFromNow
+      if (bannerData.endDate) {
+        saleEndDate = new Date(bannerData.endDate)
+      } else if (bannerData.daysFromNow) {
+        saleEndDate = new Date(Date.now() + bannerData.daysFromNow * 24 * 60 * 60 * 1000)
+      } else {
+        return
+      }
+      
       const now = new Date()
       const difference = saleEndDate.getTime() - now.getTime()
 

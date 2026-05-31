@@ -7,5 +7,7 @@
   "author": "Dr. Michael Chen",
   "date": "2024-01-10",
   "category": "Education",
-  "readTime": 6
+  "readTime": 6,
+  "image": "bg-gradient-to-br from-purple-500 to-purple-600",
+  "featuredImage": null
 }
