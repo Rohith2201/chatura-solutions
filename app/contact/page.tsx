@@ -2,8 +2,29 @@
 
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { useState } from 'react'
-import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react'
+import { useState, Suspense } from 'react'
+import dynamic from 'next/dynamic'
+import { Mail, Phone, MapPin, Clock, ArrowRight, AlertCircle, CheckCircle } from 'lucide-react'
+
+// Dynamically import the map component to avoid window is not defined error during SSR
+const ContactMap = dynamic(() => import('@/components/contact-map').then(mod => ({ default: mod.ContactMap })), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full rounded-t-lg lg:rounded-lg bg-muted flex items-center justify-center" style={{ minHeight: '384px' }}>
+      <div className="text-center text-muted-foreground">
+        <p className="text-sm">Loading map...</p>
+      </div>
+    </div>
+  ),
+})
+
+interface FormErrors {
+  name?: string
+  email?: string
+  phone?: string
+  subject?: string
+  message?: string
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,6 +36,56 @@ export default function Contact() {
   })
   const [isLoading, setIsLoading] = useState(false)
   const [message, setMessage] = useState('')
+  const [messageType, setMessageType] = useState<'success' | 'error'>('success')
+  const [errors, setErrors] = useState<FormErrors>({})
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {}
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required'
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'Name must be at least 2 characters'
+    } else if (formData.name.trim().length > 50) {
+      newErrors.name = 'Name must not exceed 50 characters'
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required'
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address'
+    }
+
+    // Phone validation
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required'
+    } else if (!/^[\d\s\-\+\(\)]{10,}$/.test(formData.phone.replace(/\s/g, ''))) {
+      newErrors.phone = 'Please enter a valid phone number (at least 10 digits)'
+    }
+
+    // Subject validation
+    if (!formData.subject.trim()) {
+      newErrors.subject = 'Subject is required'
+    } else if (formData.subject.trim().length < 3) {
+      newErrors.subject = 'Subject must be at least 3 characters'
+    } else if (formData.subject.trim().length > 100) {
+      newErrors.subject = 'Subject must not exceed 100 characters'
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required'
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters'
+    } else if (formData.message.trim().length > 5000) {
+      newErrors.message = 'Message must not exceed 5000 characters'
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -22,10 +93,25 @@ export default function Contact() {
       ...prev,
       [name]: value,
     }))
+    // Clear error for this field when user starts typing
+    if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: undefined,
+      }))
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Validate form before submission
+    if (!validateForm()) {
+      setMessage('Please fix the errors above and try again')
+      setMessageType('error')
+      return
+    }
+
     setIsLoading(true)
     setMessage('')
 
@@ -38,12 +124,24 @@ export default function Contact() {
         body: JSON.stringify(formData),
       })
 
-      const data = await response.json()
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type')
+      let data
+
+      if (contentType && contentType.includes('application/json')) {
+        data = await response.json()
+      } else {
+        // If response is not JSON, it's likely an error page
+        const text = await response.text()
+        console.error('[v0] Non-JSON response:', text)
+        data = { error: 'Server error. Please try again later.' }
+      }
 
       if (!response.ok) {
         throw new Error(data.error || 'Failed to submit form')
       }
 
+      setMessageType('success')
       setMessage('Message sent successfully! We will get back to you soon.')
       setFormData({
         name: '',
@@ -52,11 +150,13 @@ export default function Contact() {
         subject: '',
         message: '',
       })
+      setErrors({})
 
       setTimeout(() => setMessage(''), 5000)
     } catch (error) {
-      console.error('Error:', error)
-      setMessage('Failed to send message. Please try again.')
+      console.error('[v0] Submit error:', error)
+      setMessageType('error')
+      setMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.')
     } finally {
       setIsLoading(false)
     }
@@ -120,14 +220,21 @@ export default function Contact() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-4">Send Us a Message</h2>
         <p className="text-center text-muted-foreground mb-12">
           Fill out the form below and we&apos;ll get back to you as soon as possible.
         </p>
 
-        <div className="bg-card border border-border rounded-lg p-8 md:p-12">
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Map Container */}
+          <div className="order-2 lg:order-1 bg-card border border-border rounded-lg overflow-hidden flex flex-col">
+            <ContactMap />
+          </div>
+
+          {/* Form Container */}
+          <div className="order-1 lg:order-2 bg-card border border-border rounded-lg p-8 md:p-12 flex flex-col">
+            <form onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col justify-between">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Full Name</label>
@@ -136,10 +243,17 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className={`w-full px-4 py-2 border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 transition-colors ${
+                    errors.name ? 'border-red-500 focus:ring-red-500/50' : 'border-border focus:ring-primary/50'
+                  }`}
                   placeholder="John Doe"
                 />
+                {errors.name && (
+                  <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                    <AlertCircle size={14} />
+                    {errors.name}
+                  </p>
+                )}
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Email</label>
@@ -148,10 +262,17 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className={`w-full px-4 py-2 border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 transition-colors ${
+                    errors.email ? 'border-red-500 focus:ring-red-500/50' : 'border-border focus:ring-primary/50'
+                  }`}
                   placeholder="john@example.com"
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                    <AlertCircle size={14} />
+                    {errors.email}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -162,10 +283,17 @@ export default function Contact() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                required
-                className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                className={`w-full px-4 py-2 border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 transition-colors ${
+                  errors.phone ? 'border-red-500 focus:ring-red-500/50' : 'border-border focus:ring-primary/50'
+                }`}
                 placeholder="+1 (234) 567-8900"
               />
+              {errors.phone && (
+                <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                  <AlertCircle size={14} />
+                  {errors.phone}
+                </p>
+              )}
             </div>
 
             <div>
@@ -175,10 +303,17 @@ export default function Contact() {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                required
-                className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                className={`w-full px-4 py-2 border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 transition-colors ${
+                  errors.subject ? 'border-red-500 focus:ring-red-500/50' : 'border-border focus:ring-primary/50'
+                }`}
                 placeholder="How can we help?"
               />
+              {errors.subject && (
+                <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                  <AlertCircle size={14} />
+                  {errors.subject}
+                </p>
+              )}
             </div>
 
             <div>
@@ -187,22 +322,34 @@ export default function Contact() {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                required
                 rows={6}
-                className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
+                className={`w-full px-4 py-2 border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 resize-none transition-colors ${
+                  errors.message ? 'border-red-500 focus:ring-red-500/50' : 'border-border focus:ring-primary/50'
+                }`}
                 placeholder="Tell us more about your inquiry..."
               />
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                  <AlertCircle size={14} />
+                  {errors.message}
+                </p>
+              )}
             </div>
 
             {message && (
               <div
-                className={`p-4 rounded-lg text-sm ${
-                  message.includes('successfully')
+                className={`p-4 rounded-lg text-sm flex items-center gap-3 ${
+                  messageType === 'success'
                     ? 'bg-green-50 text-green-800 border border-green-200'
                     : 'bg-red-50 text-red-800 border border-red-200'
                 }`}
               >
-                {message}
+                {messageType === 'success' ? (
+                  <CheckCircle size={18} className="flex-shrink-0" />
+                ) : (
+                  <AlertCircle size={18} className="flex-shrink-0" />
+                )}
+                <span>{message}</span>
               </div>
             )}
 
@@ -214,10 +361,11 @@ export default function Contact() {
               {isLoading ? 'Sending...' : 'Send Message'} {!isLoading && <ArrowRight size={20} />}
             </button>
 
-            <p className="text-xs text-muted-foreground text-center">
-              We respect your privacy. Your information is secure and will only be used to respond to your inquiry.
-            </p>
-          </form>
+              <p className="text-xs text-muted-foreground text-center">
+                We respect your privacy. Your information is secure and will only be used to respond to your inquiry.
+              </p>
+            </form>
+          </div>
         </div>
       </section>
 

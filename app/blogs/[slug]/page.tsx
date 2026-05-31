@@ -268,9 +268,42 @@ export default function BlogPost({ params }: BlogPageProps) {
           </div>
         </div>
 
-        {/* Related Posts CTA */}
+        {/* Suggested Blogs */}
         <div className="mt-12 pt-8 border-t border-border">
-          <h3 className="text-2xl font-bold text-foreground mb-6">Continue Reading</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-6">Suggested Blogs</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {Object.entries(blogPostsData)
+              .filter(([blogSlug]) => blogSlug !== slug)
+              .slice(0, 2)
+              .map(([blogSlug, blogData]) => (
+                <Link
+                  key={blogSlug}
+                  href={`/blogs/${blogSlug}`}
+                  className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg hover:border-primary transition-all duration-300"
+                >
+                  <div className={`${blogData.image} h-32 flex items-center justify-center text-white relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
+                    <span className="relative text-xs font-semibold bg-primary/90 px-3 py-1 rounded-full">
+                      {blogData.category}
+                    </span>
+                  </div>
+                  <div className="p-4 md:p-5">
+                    <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                      {blogData.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{blogData.excerpt || blogData.content?.substring(0, 100)}</p>
+                    <div className="flex items-center justify-between text-xs text-muted-foreground">
+                      <span>by {blogData.author}</span>
+                      <span className="text-primary font-medium">Read More →</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </div>
+
+        {/* Continue Reading CTA */}
+        <div className="mt-8">
           <Link
             href="/blogs"
             className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
