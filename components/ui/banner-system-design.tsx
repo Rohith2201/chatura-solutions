@@ -95,9 +95,9 @@ function BannerSystemDesign() {
   if (!isVisible || timeLeft.isExpired || !bannerData) return null
 
   return (
-    <div className="w-full bg-white border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex w-full gap-2 md:items-center justify-between">
+    <div className="w-full flex justify-center px-4 py-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl bg-lime-200 border border-border rounded-2xl overflow-hidden">
+        <div className="px-6 py-4 flex gap-2 md:items-center justify-between">
           <div className="flex grow gap-3 md:items-center">
             <div
               className="flex size-9 shrink-0 items-center justify-center rounded-full bg-blue-500/15 max-md:mt-0.5"
