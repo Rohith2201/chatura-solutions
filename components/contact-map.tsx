@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import L from 'leaflet'
 
-export function ContactMap() {
+function ContactMap() {
   const mapContainer = useRef<HTMLDivElement>(null)
   const mapInstance = useRef<L.Map | null>(null)
 
@@ -63,3 +63,6 @@ export function ContactMap() {
     />
   )
 }
+
+export { ContactMap }
+export default ContactMap
