@@ -51,31 +51,37 @@ export default function Home() {
   ]
 
   const bounceCardFeatures = [
-    { 
-      title: 'Expert Instructors', 
-      description: 'Learn from industry professionals with years of experience',
-      gradient: 'bg-gradient-to-br from-cyan-400 to-teal-400',
-      textColor: 'text-teal-50'
-    },
-    { 
-      title: 'Personalized Guidance', 
-      description: 'One-on-one consultation tailored to your goals',
-      gradient: 'bg-gradient-to-br from-blue-400 to-cyan-400',
-      textColor: 'text-cyan-50'
-    },
-    { 
-      title: 'Proven Track Record', 
-      description: '10,000+ students placed in top companies',
-      gradient: 'bg-gradient-to-br from-teal-400 to-emerald-400',
-      textColor: 'text-emerald-50'
-    },
-    { 
-      title: '24/7 Support', 
-      description: 'Always available to answer your questions and concerns',
-      gradient: 'bg-gradient-to-br from-cyan-400 to-sky-400',
-      textColor: 'text-sky-50'
-    },
-  ]
+  {
+    title: 'Industry Experts Led Training',
+    description: 'Learn directly from experienced professionals and industry experts.',
+    gradient: 'bg-gradient-to-br from-cyan-400 to-teal-400',
+    textColor: 'text-teal-50'
+  },
+  {
+    title: 'Student-Friendly Environment',
+    description: 'Supportive learning atmosphere designed to help students succeed.',
+    gradient: 'bg-gradient-to-br from-blue-400 to-cyan-400',
+    textColor: 'text-cyan-50'
+  },
+  {
+    title: 'Self-Paced Learning',
+    description: 'Flexible learning options that let you study anytime, anywhere.',
+    gradient: 'bg-gradient-to-br from-teal-400 to-emerald-400',
+    textColor: 'text-emerald-50'
+  },
+  {
+    title: 'Online Support System',
+    description: 'Get continuous assistance and guidance throughout your learning journey.',
+    gradient: 'bg-gradient-to-br from-cyan-400 to-sky-400',
+    textColor: 'text-sky-50'
+  },
+  {
+    title: 'Industry-Aligned Curriculum',
+    description: 'Courses designed in collaboration with stakeholders and industry requirements.',
+    gradient: 'bg-gradient-to-br from-indigo-400 to-blue-500',
+    textColor: 'text-blue-50'
+  }
+]
 
   const testimonials = [
     {
