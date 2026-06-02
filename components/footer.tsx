@@ -6,9 +6,9 @@ export function Footer() {
   return (
     <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-8">
           {/* Brand Section */}
-          <div>
+          <div className="md:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2 mb-4">
               <Image 
                 src="/logo.png" 
@@ -18,20 +18,87 @@ export function Footer() {
                 className="h-auto"
               />
             </Link>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground text-sm mb-4">
               Empowering students and professionals with expert guidance for career advancement.
             </p>
+            <div className="space-y-2 text-sm">
+              <p className="text-muted-foreground flex items-center gap-2">
+                <Phone size={16} />
+                <a href="tel:+91-416-4055743" className="hover:text-primary transition-colors">
+                  +91-416-4055743
+                </a>
+              </p>
+              <p className="text-muted-foreground flex items-center gap-2">
+                <Mail size={16} />
+                <a href="mailto:info@chaturasolutions.com" className="hover:text-primary transition-colors">
+                  info@chaturasolutions.com
+                </a>
+              </p>
+              <p className="text-muted-foreground flex items-center gap-2">
+                <MapPin size={16} />
+                <span>Vellore, Tamil Nadu</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h3 className="font-semibold text-foreground mb-4">Company</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/" className="text-muted-foreground hover:text-primary transition-colors">
+                  Company
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
+                  Legal
+                </Link>
+              </li>
+              <li>
+                <Link href="/courses" className="text-muted-foreground hover:text-primary transition-colors">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  Social
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Careers */}
+          <div>
+            <h3 className="font-semibold text-foreground mb-4">Careers</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  Intern
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  Trainer
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  Fulltime
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Quick Links */}
           <div>
             <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/" className="text-muted-foreground hover:text-primary transition-colors">
-                  Home
-                </Link>
-              </li>
               <li>
                 <Link href="/courses" className="text-muted-foreground hover:text-primary transition-colors">
                   Courses
@@ -56,52 +123,6 @@ export function Footer() {
                 <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
                   Contact
                 </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Services</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/courses" className="text-muted-foreground hover:text-primary transition-colors">
-                  Upskilling Courses
-                </Link>
-              </li>
-              <li>
-                <Link href="/mock-interview" className="text-muted-foreground hover:text-primary transition-colors">
-                  Mock Interviews
-                </Link>
-              </li>
-              <li>
-                <Link href="/educational-consultation" className="text-muted-foreground hover:text-primary transition-colors">
-                  Educational Consultation
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
-                  Career Guidance
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Contact</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-2 text-muted-foreground">
-                <Mail size={16} />
-                <a href="mailto:info@chaturasolutions.com" className="hover:text-primary transition-colors">
-                  info@chaturasolutions.com
-                </a>
-              </li>
-              <li className="flex items-center gap-2 text-muted-foreground">
-                <Phone size={16} />
-                <a href="tel:+1234567890" className="hover:text-primary transition-colors">
-                  +1 (234) 567-890
-                </a>
               </li>
             </ul>
           </div>
