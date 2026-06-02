@@ -100,7 +100,7 @@ const Gallery6 = ({
       <div className="mb-2 pt-3 sm:pt-4 text-base sm:text-lg font-medium md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl break-words whitespace-normal">
         {item.title}
       </div>
-      <div className="mb-4 sm:mb-8 line-clamp-2 text-xs sm:text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9">
+      <div className="mb-4 sm:mb-8 text-xs sm:text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9">
         {item.summary}
       </div>
     </a>
@@ -135,7 +135,7 @@ const Gallery6 = ({
           >
             <CarouselContent className="ml-0 flex gap-2 sm:gap-4 md:gap-6">
               {items.map((item) => (
-                <CarouselItem key={item.id} className="basis-full sm:basis-1/2 lg:basis-1/3 pl-0 overflow-visible">
+                <CarouselItem key={item.id} className="basis-full sm:basis-1/2 lg:basis-[32%] pl-0 overflow-visible">
                   <ServiceCard item={item} />
                 </CarouselItem>
               ))}
