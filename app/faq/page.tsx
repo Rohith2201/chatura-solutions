@@ -62,8 +62,8 @@ export default function FAQPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="text-center mb-16">
+     <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 pb-4">
+        <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">
             Frequently Asked Questions
           </h1>
