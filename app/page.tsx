@@ -84,38 +84,51 @@ export default function Home() {
 ]
 
   const testimonials = [
-    {
-      id: 1,
-      name: "Raj Kumar",
-      role: "Software Engineer",
-      company: "Google",
-      content:
-        "Chatura Solutions helped me crack my Google interview. The mock interviews were incredibly realistic and the feedback from the mentors was invaluable. I landed my dream job!",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-    },
-    {
-      id: 2,
-      name: "Priya Sharma",
-      role: "Product Manager",
-      company: "Microsoft",
-      content:
-        "The upskilling courses at Chatura Solutions are comprehensive and taught by industry experts. I was able to transition from engineering to product management smoothly.",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-    },
-    {
-      id: 3,
-      name: "Arjun Patel",
-      role: "MBA Student",
-      company: "IIM Ahmedabad",
-      content:
-        "The educational consultation service helped me choose the right MBA program and craft my application strategy. I got accepted to my top choice!",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-    },
-  ]
-
+  {
+    id: 1,
+    name: "Sahith Yedlapally",
+    role: "Student",
+    company: "MLR Institute of Technology",
+    content:
+      "I recently participated in a Cybersecurity Workshop organized by Chatura, and I must say it was exceptionally well-structured and incredibly educational. I highly recommend it to anyone looking to deepen their understanding of cybersecurity.",
+    rating: 5,
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+  },
+  {
+    id: 2,
+    name: "Suprathika",
+    role: "Student",
+    company: "MLR Institute of Technology",
+    content:
+      "I had the pleasure of attending a Cybersecurity Training hosted by Chatura, and I have to admit that it was quite informative and well-organized. Anyone who wants to learn more about cybersecurity should definitely check it out.",
+    rating: 5,
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+  },
+  {
+    id: 3,
+    name: "Ambati Jeswin",
+    role: "Student",
+    company: "MLR Institute of Technology",
+    content:
+      "I recently participated in an AIML Workshop on SCRUM Technologies organized by Chatura, and I must say it was exceptionally well-structured and incredibly educational. I highly recommend it to anyone looking to deepen their understanding in AIML.",
+    rating: 5,
+    avatar:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+  },
+  {
+    id: 4,
+    name: "Baswa Reddy Vineeth Prasad Reddy",
+    role: "Student",
+    company: "MLR Institute of Technology",
+    content:
+      "I recently participated in an AIML Workshop on SCRUM Technologies organized by Chatura, and I must say it was exceptionally well-structured and incredibly educational. I highly recommend it to anyone looking to deepen their understanding in AIML.",
+    rating: 5,
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+  },
+];
   const faqs  = [
   {
     q: 'How do I register for a course?',
