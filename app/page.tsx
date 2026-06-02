@@ -116,33 +116,48 @@ export default function Home() {
     },
   ]
 
-  const faqs = [
-    {
-      q: 'What is Chatura Solutions?',
-      a: 'Chatura Solutions is an EdTech platform offering upskilling courses, mock interviews, and educational consultation services for career advancement.',
-    },
-    {
-      q: 'How do I schedule a mock interview?',
-      a: 'Visit our Mock Interview page and click on the scheduling link to book your session with our experts.',
-    },
-    {
-      q: 'Can I get a refund if I am not satisfied?',
-      a: 'Yes, we offer a 30-day money-back guarantee if you are not satisfied with our services.',
-    },
-    {
-      q: 'Do you offer group sessions?',
-      a: 'Yes, we offer both individual and group sessions for consultations and courses.',
-    },
-    {
-      q: 'How long does educational consultation take?',
-      a: 'Consultation duration varies based on your needs, typically ranging from 1-3 hours spread over multiple sessions.',
-    },
-    {
-      q: 'What subjects do you cover?',
-      a: 'We cover a wide range of subjects including technical interviews, career counseling, university applications, and professional development.',
-    },
-  ]
-
+  const faqs  = [
+  {
+    q: 'How do I register for a course?',
+    a: 'Upcoming batches are listed under Courses. Simply choose your preferred batch and complete the registration process.',
+  },
+  {
+    q: 'Do I get a certificate after completing a course?',
+    a: 'Yes. A certificate of completion will be provided upon successfully finishing the course.',
+  },
+  {
+    q: 'How can I get educational consultation?',
+    a: 'You can fix an appointment through our platform. One of our executives will contact you within one hour of your scheduled time.',
+  },
+  {
+    q: 'What kind of educational consultation do you provide?',
+    a: 'We assist with college admissions, course comparisons, career guidance, and educational planning to help you make informed decisions.',
+  },
+  {
+    q: 'Can I schedule a mock interview?',
+    a: 'Yes. Book an appointment, make the payment, upload your resume, job description, and preferred time slot. A meeting link will be shared before the interview.',
+  },
+  {
+    q: 'Who conducts the mock interview?',
+    a: 'Mock interviews are conducted by experienced industry professionals who provide detailed feedback and improvement suggestions.',
+  },
+  {
+    q: 'How can I apply for internships?',
+    a: 'Internship opportunities are posted under Services → Internships. Register for available openings, and shortlisted candidates will be invited for interviews.',
+  },
+  {
+    q: 'Do I need to pay for an internship?',
+    a: 'There is a registration fee to apply. Selected candidates receive a stipend based on assigned tasks and successful completion.',
+  },
+  {
+    q: 'What is the duration of the internship program?',
+    a: 'Internship programs typically last between 3 and 6 months, depending on the role and project requirements.',
+  },
+  {
+    q: 'Where can I find job openings at Chatura Solutions?',
+    a: 'All current job openings and career opportunities are available on the Careers page.',
+  },
+];
   return (
     <div className="min-h-screen bg-background">
       <Header />
