@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
           {/* Column 1: Logo and Text */}
           <div>
             <Link href="/" className="inline-flex items-center gap-2 mb-4">
@@ -21,24 +21,6 @@ export function Footer() {
             <p className="text-muted-foreground text-sm">
               Empowering students and professionals with expert guidance for career advancement.
             </p>
-            <div className="mt-6 space-y-3 text-sm">
-              <p className="text-muted-foreground flex items-center gap-2">
-                <Phone size={16} />
-                <a href="tel:+91-416-4055743" className="hover:text-primary transition-colors">
-                  +91-416-4055743
-                </a>
-              </p>
-              <p className="text-muted-foreground flex items-center gap-2">
-                <Mail size={16} />
-                <a href="mailto:info@chaturasolutions.com" className="hover:text-primary transition-colors">
-                  info@chaturasolutions.com
-                </a>
-              </p>
-              <p className="text-muted-foreground flex items-center gap-2">
-                <MapPin size={16} />
-                <span>Vellore, Tamil Nadu</span>
-              </p>
-            </div>
           </div>
 
           {/* Column 2: Legal */}
@@ -57,6 +39,11 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-foreground mb-4">Services</h3>
             <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/courses" className="text-muted-foreground hover:text-primary transition-colors">
+                  Upskilling - Courses
+                </Link>
+              </li>
               <li>
                 <Link href="/mock-interview" className="text-muted-foreground hover:text-primary transition-colors">
                   Mock Interview
@@ -97,13 +84,13 @@ export function Footer() {
             <h3 className="font-semibold text-foreground mb-4">Social</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
+                <a href="https://www.instagram.com/chaturasolutions/" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
                   <Instagram size={18} />
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
+                <a href="https://www.linkedin.com/company/chaturasolutions/" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
                   <Linkedin size={18} />
                   linkedin
                 </a>
@@ -113,7 +100,7 @@ export function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-border pt-8">
+        <div className="border-white border-border pt-8">
           <p className="text-muted-foreground text-sm text-center">
             © 2026 Chatura Solutions LLP. All rights reserved.
           </p>
