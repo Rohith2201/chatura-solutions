@@ -29,7 +29,7 @@ export default function Home() {
   const servicesGallery = [
     {
       id: 'item-1',
-      title: 'Upskilling Courses',
+      title: 'Upskilling - Courses',
       summary: 'Comprehensive courses designed to enhance your professional skills and expertise in your field. Master new technologies and advanced techniques with industry experts.',
       url: '#',
       image: '/images/services/upskilling.jpg',
@@ -48,6 +48,13 @@ export default function Home() {
       url: '#',
       image: '/images/services/consultation.jpg',
     },
+      {
+      id: 'item-4',
+      title: 'Career Counselling',
+      summary: 'Receive personalized career guidance from industry experts. Explore career paths, identify your strengths, set achievable goals, and make informed decisions about your education and professional future.',
+      url: '#',
+      image: '/images/services/career-counselling.jpg',
+},
   ]
 
   const bounceCardFeatures = [
