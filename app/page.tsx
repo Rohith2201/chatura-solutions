@@ -53,7 +53,7 @@ export default function Home() {
       title: 'Career Counselling',
       summary: 'Receive personalized career guidance from industry experts. Explore career paths, identify your strengths, set achievable goals, and make informed decisions about your education and professional future.',
       url: '#',
-      image: '/images/services/career-counselling.jpg',
+      image: '/images/services/career-counselling.png',
 },
   ]
 
