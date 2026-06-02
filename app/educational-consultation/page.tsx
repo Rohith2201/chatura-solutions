@@ -21,24 +21,6 @@ export default function EducationalConsultation() {
   const [isLoading, setIsLoading] = useState(false)
   const [message, setMessage] = useState('')
 
-  const services = [
-    {
-      icon: Globe,
-      title: 'University Selection',
-      description: 'Get guidance on choosing the right university based on your profile and goals.',
-    },
-    {
-      icon: GraduationCap,
-      title: 'Application Support',
-      description: 'Expert help with applications, essays, and interview preparation for higher education.',
-    },
-    {
-      icon: Briefcase,
-      title: 'Career Path Planning',
-      description: 'Plan your educational journey aligned with your career aspirations.',
-    },
-  ]
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({
@@ -148,7 +130,7 @@ export default function EducationalConsultation() {
       </section>
 
       {/* Services */}
-      <section className="bg-gradient-to-b from-background to-background/50 py-20 md:py-28">
+      <section className="bg-gradient-to-b from-background to-background/50 py-20 md:py-11">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">Our Consultation Services</h2>
@@ -203,7 +185,7 @@ export default function EducationalConsultation() {
       </section>
 
       {/* Our Students in Countries Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-25">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Students in Countries</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -278,7 +260,7 @@ export default function EducationalConsultation() {
 
 
       {/* Consultation Form */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32" data-consultation-form>
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-20" data-consultation-form>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-4">Schedule Your Consultation</h2>
         <p className="text-center text-muted-foreground mb-12">
           Fill out the form below and our team will get in touch within 24 hours to discuss your educational goals.
@@ -401,7 +383,7 @@ export default function EducationalConsultation() {
       {/* CTA Section */}
 
 
-      <section className="py-12 md:py-16">
+      <section className="py-12 md:py-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl py-12 md:py-16 px-6 md:px-10">
             <div className="max-w-3xl mx-auto text-center">
