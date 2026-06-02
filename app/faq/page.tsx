@@ -95,9 +95,9 @@ export default function FAQPage() {
         </div>
 
         {/* Contact CTA */}
-        <div className="mt-16 p-8 md:p-12 bg-card border border-border rounded-lg text-center">
-          <h3 className="text-2xl font-bold text-foreground mb-3">Didn&apos;t find your answer?</h3>
-          <p className="text-muted-foreground mb-6">
+        <div className="mt-16 p-8 md:p-12 bg-gradient-to-r from-blue-600 to-blue-700  rounded-lg text-center">
+          <h3 className="text-2xl font-bold text-white mb-3">Didn&apos;t find your answer?</h3>
+          <p className="text-white mb-6">
             If you have additional questions, please don&apos;t hesitate to reach out to our support team.
           </p>
           <a
