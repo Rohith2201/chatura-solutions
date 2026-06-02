@@ -46,7 +46,7 @@ export default function MockInterviewPage() {
               <div>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center border-2 border-cyan-500 text-cyan-500 px-6 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition-colors uppercase tracking-wider"
+                  className="inline-flex items-center justify-center border-2  border-purple-500 to-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition-colors uppercase tracking-wider"
                 >
                   Get Started
                 </Link>
@@ -75,7 +75,7 @@ export default function MockInterviewPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Step 1 */}
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl font-bold">1</span>
               </div>
               <h3 className="text-lg font-bold text-black mb-2">Schedule</h3>
@@ -84,7 +84,7 @@ export default function MockInterviewPage() {
 
             {/* Step 2 */}
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl font-bold">2</span>
               </div>
               <h3 className="text-lg font-bold text-black mb-2">Prepare</h3>
@@ -93,7 +93,7 @@ export default function MockInterviewPage() {
 
             {/* Step 3 */}
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl font-bold">3</span>
               </div>
               <h3 className="text-lg font-bold text-black mb-2">Interview</h3>
@@ -102,7 +102,7 @@ export default function MockInterviewPage() {
 
             {/* Step 4 */}
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl font-bold">4</span>
               </div>
               <h3 className="text-lg font-bold text-black mb-2">Feedback</h3>
