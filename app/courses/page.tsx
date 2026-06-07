@@ -188,7 +188,7 @@ export default function Courses() {
       )} */}
 
       {/* Tabs & Search */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" data-available-section>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-available-section>
         <div className="mb-6">
           <div className="relative">
             <Search className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
@@ -417,7 +417,7 @@ export default function Courses() {
       )}
 
       {/* CTA Section */}
-      <section className="bg-card border-y border-border py-16 md:py-24">
+      <section className="bg-card py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Ready to Transform Your Career?</h2>
           <p className="text-muted-foreground text-lg mb-8 text-balance">
