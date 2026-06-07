@@ -38,7 +38,7 @@ export default function MockInterviewPage() {
             {/* Left Column */}
             <div className="flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-bold text-purple-600 mb-6">
-                Practice mock interviews with peers
+                Practice mock interviews with experts
               </h2>
               <p className="text-black text-lg mb-8 leading-relaxed">
                 Join thousands of tech candidates practicing interviews to land jobs. Practice real questions over video chat in a collaborative environment and get helpful feedback.

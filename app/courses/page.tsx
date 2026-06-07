@@ -204,11 +204,10 @@ export default function Courses() {
         <div className="flex gap-4 border-b border-border">
           <button
             onClick={() => setActiveTab('available')}
-            className={`pb-4 px-4 font-semibold transition-colors ${
-              activeTab === 'available'
+            className={`pb-4 px-4 font-semibold transition-colors ${activeTab === 'available'
                 ? 'text-primary border-b-2 border-primary -mb-1'
                 : 'text-muted-foreground hover:text-foreground'
-            }`}
+              }`}
           >
             <span className="flex items-center gap-2">
               <Zap size={20} />
@@ -217,11 +216,10 @@ export default function Courses() {
           </button>
           <button
             onClick={() => setActiveTab('previous')}
-            className={`pb-4 px-4 font-semibold transition-colors ${
-              activeTab === 'previous'
+            className={`pb-4 px-4 font-semibold transition-colors ${activeTab === 'previous'
                 ? 'text-primary border-b-2 border-primary -mb-1'
                 : 'text-muted-foreground hover:text-foreground'
-            }`}
+              }`}
           >
             <span className="flex items-center gap-2">
               <Star size={20} />
@@ -241,100 +239,100 @@ export default function Courses() {
           ) : (
             <div className="grid grid-cols-1 gap-8">
               {filteredBatches.map((batch) => {
-              const levelColor = levelColors[batch.level] || levelColors['Beginner']
-              return (
-                <div
-                  key={batch.id}
-                  className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg hover:border-primary transition-all duration-300"
-                >
-                  <div className="p-6 md:p-8">
-                    {/* Header */}
-                    <div className="flex items-start justify-between gap-4 mb-4">
-                      <h3 className="text-xl md:text-2xl font-bold text-foreground flex-1 text-balance">
-                        {batch.courseTitle}
-                      </h3>
-                      <span className={`px-3 py-1 rounded-full text-sm font-semibold border whitespace-nowrap ${levelColor}`}>
-                        {batch.level}
-                      </span>
-                    </div>
-
-                    <p className="text-muted-foreground mb-6 text-balance">{batch.description}</p>
-
-                    {/* Topics */}
-                    <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-foreground mb-2">Topics Covered:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {batch.topics.map((topic, idx) => (
-                          <span
-                            key={idx}
-                            className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-md border border-primary/20"
-                          >
-                            {topic}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Details */}
-                    <div className="space-y-3 mb-6 pb-6 border-b border-border">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Calendar size={16} />
-                        <span>
-                          {new Date(batch.startDate).toLocaleDateString('en-US', {
-                            month: 'short',
-                            day: 'numeric',
-                            year: 'numeric',
-                          })}{' '}
-                          -{' '}
-                          {new Date(batch.endDate).toLocaleDateString('en-US', {
-                            month: 'short',
-                            day: 'numeric',
-                            year: 'numeric',
-                          })}
+                const levelColor = levelColors[batch.level] || levelColors['Beginner']
+                return (
+                  <div
+                    key={batch.id}
+                    className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg hover:border-primary transition-all duration-300"
+                  >
+                    <div className="p-6 md:p-8">
+                      {/* Header */}
+                      <div className="flex items-start justify-between gap-4 mb-4">
+                        <h3 className="text-xl md:text-2xl font-bold text-foreground flex-1 text-balance">
+                          {batch.courseTitle}
+                        </h3>
+                        <span className={`px-3 py-1 rounded-full text-sm font-semibold border whitespace-nowrap ${levelColor}`}>
+                          {batch.level}
                         </span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Clock size={16} />
-                        <span>{batch.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <User size={16} />
-                        <span>Instructor: {batch.instructor}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <span className="text-xs font-mono bg-muted px-2 py-1 rounded">{batch.schedule}</span>
-                      </div>
-                    </div>
 
-                    {/* Seats & Price */}
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="flex items-center gap-2">
-                        <Users size={16} className="text-muted-foreground" />
-                        <span className="text-sm text-muted-foreground">
-                          {batch.seatsRemaining} of {batch.seats} seats
-                        </span>
-                        <div className="w-20 h-2 bg-muted rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-primary transition-all"
-                            style={{
-                              width: `${((batch.seats - batch.seatsRemaining) / batch.seats) * 100}%`,
-                            }}
-                          />
+                      <p className="text-muted-foreground mb-6 text-balance">{batch.description}</p>
+
+                      {/* Topics */}
+                      <div className="mb-6">
+                        <h4 className="text-sm font-semibold text-foreground mb-2">Topics Covered:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {batch.topics.map((topic, idx) => (
+                            <span
+                              key={idx}
+                              className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-md border border-primary/20"
+                            >
+                              {topic}
+                            </span>
+                          ))}
                         </div>
                       </div>
-                      <span className="text-2xl font-bold text-primary">{batch.price}</span>
-                    </div>
 
-                    {/* CTA Button */}
-                    <Link
-                      href="/contact"
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-6 rounded-lg transition-colors text-center block"
-                    >
-                      Register Now
-                    </Link>
+                      {/* Details */}
+                      <div className="space-y-3 mb-6 pb-6 border-b border-border">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Calendar size={16} />
+                          <span>
+                            {new Date(batch.startDate).toLocaleDateString('en-US', {
+                              month: 'short',
+                              day: 'numeric',
+                              year: 'numeric',
+                            })}{' '}
+                            -{' '}
+                            {new Date(batch.endDate).toLocaleDateString('en-US', {
+                              month: 'short',
+                              day: 'numeric',
+                              year: 'numeric',
+                            })}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Clock size={16} />
+                          <span>{batch.duration}</span>
+                        </div>
+                        {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <User size={16} />
+                        <span>Instructor: {batch.instructor}</span>
+                      </div> */}
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <span className="text-xs font-mono bg-muted px-2 py-1 rounded">{batch.schedule}</span>
+                        </div>
+                      </div>
+
+                      {/* Seats & Price */}
+                      <div className="flex items-center justify-between mb-6">
+                        <div className="flex items-center gap-2">
+                          <Users size={16} className="text-muted-foreground" />
+                          <span className="text-sm text-muted-foreground">
+                            {batch.seatsRemaining} of {batch.seats} seats
+                          </span>
+                          <div className="w-20 h-2 bg-muted rounded-full overflow-hidden">
+                            <div
+                              className="h-full bg-primary transition-all"
+                              style={{
+                                width: `${((batch.seats - batch.seatsRemaining) / batch.seats) * 100}%`,
+                              }}
+                            />
+                          </div>
+                        </div>
+                        <span className="text-2xl font-bold text-primary">{batch.price}</span>
+                      </div>
+
+                      {/* CTA Button */}
+                      <Link
+                        href="/contact"
+                        className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-6 rounded-lg transition-colors text-center block"
+                      >
+                        Register Now
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              )
+                )
               })}
             </div>
           )}
