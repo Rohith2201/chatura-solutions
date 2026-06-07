@@ -124,7 +124,7 @@ export default function Courses() {
       <Header />
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-15 md:py-15">
         <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">
             Upskilling Courses & Batches
@@ -233,13 +233,13 @@ export default function Courses() {
 
       {/* Available Batches */}
       {activeTab === 'available' && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-15 md:py-0">
           {filteredBatches.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-muted-foreground text-lg">No courses match your search. Try adjusting your search terms.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8">
               {filteredBatches.map((batch) => {
               const levelColor = levelColors[batch.level] || levelColors['Beginner']
               return (
