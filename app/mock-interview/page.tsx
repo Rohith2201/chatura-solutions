@@ -143,6 +143,55 @@ export default function MockInterviewPage() {
         ]}
       />
 
+      {/* Benefits of a Mock Interview Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-12 text-center">Benefits of a Mock Interview</h2>
+          
+          <div className="space-y-6">
+            <div className="flex gap-4">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center h-8 w-8 rounded-md bg-purple-500 text-white font-bold">✓</div>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-black mb-2">Reduces Anxiety</h3>
+                <p className="text-black">Familiarizes candidates with the interview process and helps them become more comfortable and confident.</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center h-8 w-8 rounded-md bg-purple-500 text-white font-bold">✓</div>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-black mb-2">Improves Responses</h3>
+                <p className="text-black">Helps candidates refine their answers to common interview questions and practice articulating their experiences and skills effectively.</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center h-8 w-8 rounded-md bg-purple-500 text-white font-bold">✓</div>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-black mb-2">Enhances Performance</h3>
+                <p className="text-black">Provides an opportunity to practice and receive feedback on interview skills, such as communication, professionalism, and problem-solving.</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center h-8 w-8 rounded-md bg-purple-500 text-white font-bold">✓</div>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-black mb-2">Identifies Gaps</h3>
+                <p className="text-black">Reveals areas where the candidate might need more preparation or improvement.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="bg-white">
         <TestimonialsSection />
