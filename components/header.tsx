@@ -55,7 +55,7 @@ export function Header() {
           {/* Home Link */}
           <Link
             href={desktopNavOrder[0].href}
-            className="text-foreground hover:text-primary transition-colors font-medium"
+            className="text-foreground hover:text-primary transition-colors font-medium text-xl"
           >
             {desktopNavOrder[0].label}
           </Link>
@@ -64,12 +64,12 @@ export function Header() {
           <div className="relative group">
             <button
               onClick={toggleServices}
-              className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium"
+              className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium text-xl"
             >
               Services
               <ChevronDown size={16} className="group-hover:rotate-180 transition-transform" />
             </button>
-            <div className="absolute left-0 mt-0 w-56 bg-card border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div className="absolute left-0 mt-0 w-56 bg-card border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 ">
               {serviceLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -87,7 +87,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-foreground hover:text-primary transition-colors font-medium"
+              className="text-foreground hover:text-primary transition-colors font-medium text-xl"
             >
               {link.label}
             </Link>
