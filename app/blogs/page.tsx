@@ -45,7 +45,6 @@ export default function Blogs() {
           'career-transition-guide',
           'education-planning-101',
           'top-10-interview-questions',
-          'choosing-right-university',
           'essential-skills-2024',
           'star-method-behavioral-interviews',
         ]
