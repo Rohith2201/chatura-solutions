@@ -49,8 +49,8 @@
     {
       "id": "prev-batch-1",
       "courseTitle": "Complete Interview Preparation",
-      "startDate": "2024-01-15",
-      "endDate": "2024-03-15",
+      "startDate": "2026-01-15",
+      "endDate": "2026-03-15",
       "duration": "8 weeks",
       "instructor": "Sarah Johnson",
       "studentCount": 18,
@@ -71,8 +71,8 @@
     {
       "id": "prev-batch-2",
       "courseTitle": "Advanced Data Structures & Algorithms",
-      "startDate": "2023-12-01",
-      "endDate": "2024-02-28",
+      "startDate": "2025-12-01",
+      "endDate": "2026-02-28",
       "duration": "12 weeks",
       "instructor": "Michael Chen",
       "studentCount": 22,
@@ -88,8 +88,8 @@
     {
       "id": "prev-batch-3",
       "courseTitle": "Career Development & Soft Skills",
-      "startDate": "2024-01-01",
-      "endDate": "2024-02-01",
+      "startDate": "2026-01-01",
+      "endDate": "2026-02-01",
       "duration": "4 weeks",
       "instructor": "Emily Rodriguez",
       "studentCount": 25,
