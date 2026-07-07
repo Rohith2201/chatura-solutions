@@ -227,7 +227,7 @@ export default function MockInterviewPage() {
                   href="/contact"
                   className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary px-6 py-2.5 rounded-lg font-semibold hover:opacity-90 transition-opacity"
                 >
-                  Schedule Now
+                  Schedule Mock Interview
                 </Link>
 
 
