@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8 ">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 ">
           {/* Column 1: Logo and Text */}
           <div>
             <Link href="/" className="inline-flex items-center gap-2 mb-4">
@@ -58,7 +58,7 @@ export function Footer() {
           </div>
 
           {/* Column 4: Careers */}
-          <div>
+          {/* <div>
             <h3 className="font-semibold text-foreground mb-4">Careers</h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -77,7 +77,7 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Column 5: Social */}
           <div>
