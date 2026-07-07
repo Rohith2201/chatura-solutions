@@ -275,19 +275,21 @@ export default function Courses() {
                       <p className="text-muted-foreground mb-6 text-balance">{batch.description}</p>
 
                       {/* Topics */}
-                      <div className="mb-6">
-                        <h4 className="text-sm font-semibold text-foreground mb-2">Topics Covered:</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {batch.topics.map((topic, idx) => (
-                            <span
-                              key={idx}
-                              className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-md border border-primary/20"
-                            >
-                              {topic}
-                            </span>
-                          ))}
+                      {batch.topics && batch.topics.length > 0 && (
+                        <div className="mb-6">
+                          <h4 className="text-sm font-semibold text-foreground mb-2">Topics Covered:</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {batch.topics.map((topic, idx) => (
+                              <span
+                                key={idx}
+                                className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-md border border-primary/20"
+                              >
+                                {topic}
+                              </span>
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
 
                       {/* Details */}
                       <div className="space-y-3 mb-6 pb-6 border-b border-border">
