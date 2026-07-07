@@ -152,21 +152,21 @@ export default function BlogPost({ params }: BlogPageProps) {
         </header>
 
         {/* Article Body */}
-        <div className="prose prose-lg max-w-none text-foreground mb-12 space-y-4">
+        <div className="prose prose-base max-w-none text-foreground mb-12 space-y-4">
           {post.content
             .split('\n\n')
             .filter((para: string) => para.trim())
             .map((para: string, idx: number) => {
               if (para.startsWith('## ')) {
                 return (
-                  <h2 key={idx} className="text-3xl font-bold mt-8 mb-4 text-foreground">
+                  <h2 key={idx} className="text-xl font-semibold mt-6 mb-3 text-foreground">
                     {para.replace('## ', '')}
                   </h2>
                 )
               }
               if (para.startsWith('### ')) {
                 return (
-                  <h3 key={idx} className="text-2xl font-semibold mt-6 mb-3 text-foreground">
+                  <h3 key={idx} className="text-lg font-medium mt-4 mb-2 text-foreground">
                     {para.replace('### ', '')}
                   </h3>
                 )
@@ -178,7 +178,7 @@ export default function BlogPost({ params }: BlogPageProps) {
                 return (
                   <ul key={idx} className="list-disc list-inside space-y-2 mb-4 text-muted-foreground">
                     {items.map((item: string, i: number) => (
-                      <li key={i} className="mb-1">
+                      <li key={i} className="mb-1 text-base">
                         {item.replace('- ', '')}
                       </li>
                     ))}
@@ -186,7 +186,7 @@ export default function BlogPost({ params }: BlogPageProps) {
                 )
               }
               return (
-                <p key={idx} className="text-muted-foreground leading-relaxed mb-4">
+                <p key={idx} className="text-muted-foreground leading-relaxed mb-4 text-base">
                   {para}
                 </p>
               )
