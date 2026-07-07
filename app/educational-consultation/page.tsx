@@ -60,7 +60,7 @@ export default function EducationalConsultation() {
                 </div>
               </div>
               <Link
-                href="/contact"
+                href="https://forms.gle/3A8p5YdHYdF8ys6z7"
                 className="inline-flex items-center justify-center border-2 border-blue-500 text-blue-500 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors uppercase tracking-wider"
               >
                 Book Educational Consultation
@@ -257,7 +257,7 @@ export default function EducationalConsultation() {
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link
-                  href="/contact"
+                  href="https://forms.gle/3A8p5YdHYdF8ys6z7"
                   className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-blue-500 px-6 py-2.5 rounded-lg font-semibold hover:opacity-90 transition-opacity"
                 >
                   Schedule Educational Consultation <ArrowRight size={18} />
