@@ -27,7 +27,7 @@ const categoryColors: { [key: string]: string } = {
   'Default': 'bg-gradient-to-br from-yellow-500 to-yellow-600',
 }
 
-const BLOGS_PER_PAGE = 5
+const BLOGS_PER_PAGE = 6
 
 export default function Blogs() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
@@ -45,7 +45,6 @@ export default function Blogs() {
           'career-transition-guide',
           'education-planning-101',
           'top-10-interview-questions',
-          'choosing-right-university',
           'essential-skills-2024',
           'star-method-behavioral-interviews',
         ]
