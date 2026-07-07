@@ -19,7 +19,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-muted-foreground text-sm">
-               With us you can upskill, work on real project, works as interns, get educational consultation, attend mock interviews and redefine your career
+               Upskill to Redefine Your Career
             </p>
           </div>
 
