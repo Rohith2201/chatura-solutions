@@ -38,7 +38,7 @@ export default function MockInterviewPage() {
             {/* Left Column */}
             <div className="flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-bold text-purple-600 mb-6">
-                Practice mock interviews with peers
+                Practice mock interviews with experts
               </h2>
               <p className="text-black text-lg mb-8 leading-relaxed">
                 Join thousands of tech candidates practicing interviews to land jobs. Practice real questions over video chat in a collaborative environment and get helpful feedback.
@@ -46,7 +46,7 @@ export default function MockInterviewPage() {
               <div>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center border-2 border-cyan-500 text-cyan-500 px-6 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition-colors uppercase tracking-wider"
+                  className="inline-flex items-center justify-center border-2  border-purple-500 to-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition-colors uppercase tracking-wider"
                 >
                   Get Started
                 </Link>
@@ -75,7 +75,7 @@ export default function MockInterviewPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Step 1 */}
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl font-bold">1</span>
               </div>
               <h3 className="text-lg font-bold text-black mb-2">Schedule</h3>
@@ -84,7 +84,7 @@ export default function MockInterviewPage() {
 
             {/* Step 2 */}
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl font-bold">2</span>
               </div>
               <h3 className="text-lg font-bold text-black mb-2">Prepare</h3>
@@ -93,7 +93,7 @@ export default function MockInterviewPage() {
 
             {/* Step 3 */}
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl font-bold">3</span>
               </div>
               <h3 className="text-lg font-bold text-black mb-2">Interview</h3>
@@ -102,7 +102,7 @@ export default function MockInterviewPage() {
 
             {/* Step 4 */}
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl font-bold">4</span>
               </div>
               <h3 className="text-lg font-bold text-black mb-2">Feedback</h3>
@@ -119,7 +119,7 @@ export default function MockInterviewPage() {
           {
             title: 'Expert Interviewers',
             description: 'Learn from seasoned professionals who have conducted hundreds of interviews at FAANG companies. Get insider tips on what hiring managers really look for and how to stand out.',
-            link: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&auto=format&fit=crop',
+            link: '/images/services/mock-interview.jpg',
             color: '#06b6d4',
           },
           {
@@ -131,36 +131,112 @@ export default function MockInterviewPage() {
           {
             title: 'Personalized Feedback',
             description: 'Receive comprehensive feedback after every session highlighting your strengths, areas for improvement, and specific actionable tips to boost your confidence.',
-            link: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&auto=format&fit=crop',
+            link: '/images/services/consultation.jpg',
             color: '#06a8d4',
           },
           {
             title: 'Supportive Community',
             description: 'Connect with thousands of ambitious professionals preparing for their dream roles. Share experiences, learn from peers, and support each other on this journey.',
-            link: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&auto=format&fit=crop',
+            link: '/images/services/Supportive.png',
             color: '#0b7ab4',
           },
         ]}
       />
+
+      {/* Benefits of a Mock Interview Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-12 text-center">Benefits of a Mock Interview</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Benefit 1 */}
+            <div className="group bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg hover:border-purple-300 transition-all duration-300 hover:-translate-y-1">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold text-lg">✓</div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-black mb-3">Reduces Anxiety</h3>
+                  <p className="text-gray-700 leading-relaxed">Familiarizes candidates with the interview process and helps them become more comfortable and confident.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Benefit 2 */}
+            <div className="group bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg hover:border-purple-300 transition-all duration-300 hover:-translate-y-1">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold text-lg">✓</div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-black mb-3">Improves Responses</h3>
+                  <p className="text-gray-700 leading-relaxed">Helps candidates refine their answers to common interview questions and practice articulating their experiences and skills effectively.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Benefit 3 */}
+            <div className="group bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg hover:border-purple-300 transition-all duration-300 hover:-translate-y-1">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold text-lg">✓</div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-black mb-3">Enhances Performance</h3>
+                  <p className="text-gray-700 leading-relaxed">Provides an opportunity to practice and receive feedback on interview skills, such as communication, professionalism, and problem-solving.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Benefit 4 */}
+            <div className="group bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg hover:border-purple-300 transition-all duration-300 hover:-translate-y-1">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold text-lg">✓</div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-black mb-3">Identifies Gaps</h3>
+                  <p className="text-gray-700 leading-relaxed">Reveals areas where the candidate might need more preparation or improvement.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Testimonials Section */}
       <section className="bg-white">
         <TestimonialsSection />
       </section>
 
-      {/* Final CTA Section */}
-      <section className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-r from-blue-900 to-blue-800 py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Interview Skills?</h2>
-          <p className="text-blue-100 text-lg mb-8">Join our community of successful professionals today.</p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center bg-white text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors w-fit"
-          >
-            Schedule Now
-          </Link>
+      {/* CTA Section */}
+      <section className="py-12 md:py-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-3xl py-12 md:py-16 px-6 md:px-10">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
+                Ready to Transform Your Interview Skills?
+              </h2>
+
+              <p className="text-primary-foreground/90 text-base md:text-lg mb-6">
+                Join our community of successful professionals today.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary px-6 py-2.5 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                >
+                  Schedule Now
+                </Link>
+
+
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+
 
       <Footer />
     </div>
