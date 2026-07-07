@@ -87,7 +87,7 @@ export default function EducationalConsultation() {
 
           {/* Main Heading */}
           <h1 className="text-center text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
-            <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">Expert Educational Consultation</span> for Success
+            <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">Expert Educational Consultation <br></br></span> for Success
           </h1>
 
           {/* Description */}
