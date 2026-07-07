@@ -44,8 +44,9 @@ export default function Blogs() {
         // Dynamically load all blogs from data/blogs directory
         const response = await fetch('/api/blogs')
         if (response.ok) {
-          const blogs: BlogPost[] = await response.json()
-          setBlogPosts(blogs)
+          const data = await response.json()
+          const blogs = data.blogs || data
+          setBlogPosts(Array.isArray(blogs) ? blogs : [])
         }
       } catch (error) {
         console.error('[v0] Error loading blogs:', error)
