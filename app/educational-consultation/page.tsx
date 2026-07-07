@@ -192,22 +192,22 @@ export default function EducationalConsultation() {
             },
           ],
         },
-        {
-          title: "Educational Technology Integration",
-          image: "/images/educational-technology.png",
-          services: [
-            {
-              heading: "Technology Planning",
-              description:
-                "Assisting institutions in selecting and implementing effective digital learning tools and platforms.",
-            },
-            {
-              heading: "Professional Training",
-              description:
-                "Equipping teachers and administrators with practical skills to maximize educational technology.",
-            },
-          ],
-        },
+        // {
+        //   title: "Educational Technology Integration",
+        //   image: "/images/educational-technology.png",
+        //   services: [
+        //     {
+        //       heading: "Technology Planning",
+        //       description:
+        //         "Assisting institutions in selecting and implementing effective digital learning tools and platforms.",
+        //     },
+        //     {
+        //       heading: "Professional Training",
+        //       description:
+        //         "Equipping teachers and administrators with practical skills to maximize educational technology.",
+        //     },
+        //   ],
+        // },
         {
           title: "Curriculum Development",
           image: "/images/curriculum-development.png",
