@@ -356,7 +356,7 @@ if (validateForm()) {
 
 - **Contact Page**: https://chaturasolutions.com/contact
 - **Consultation**: https://chaturasolutions.com/educational-consultation
-- **Email**: info@chaturasolutions.com
+- **Email**: support@chaturasolutions.com
 - **Phone**: +91-416-4055743
 
 For additional support, see the main documentation at `/docs/README.md`
