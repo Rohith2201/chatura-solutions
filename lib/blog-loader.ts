@@ -58,6 +58,23 @@ export function loadBlogBySlug(slug: string): BlogPost | null {
 }
 
 /**
+ * Parse date string safely
+ */
+function parseDate(dateString: string): number {
+  try {
+    const date = new Date(dateString)
+    if (isNaN(date.getTime())) {
+      console.warn(`[v0] Invalid date format: ${dateString}`)
+      return 0
+    }
+    return date.getTime()
+  } catch (error) {
+    console.warn(`[v0] Error parsing date ${dateString}:`, error)
+    return 0
+  }
+}
+
+/**
  * Load all blog posts
  */
 export function loadAllBlogs(): BlogPost[] {
@@ -71,6 +88,6 @@ export function loadAllBlogs(): BlogPost[] {
     }
   }
 
-  // Sort by date (newest first)
-  return blogs.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  // Sort by date (newest first) with safe date parsing
+  return blogs.sort((a, b) => parseDate(b.date) - parseDate(a.date))
 }
