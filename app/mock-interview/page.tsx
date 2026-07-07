@@ -48,7 +48,7 @@ export default function MockInterviewPage() {
                   href="https://forms.gle/dgwtQV38bFQfdWHR7"
                   className="inline-flex items-center justify-center border-2  border-purple-500 to-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition-colors uppercase tracking-wider"
                 >
-                  Get Started
+                  Schedule Interview
                 </Link>
               </div>
             </div>
