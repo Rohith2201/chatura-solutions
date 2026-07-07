@@ -422,9 +422,9 @@ export default function EducationalConsultation() {
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary px-6 py-2.5 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-blue-500 px-6 py-2.5 rounded-lg font-semibold hover:opacity-90 transition-opacity"
                 >
-                  Contact US <ArrowRight size={18} />
+                  Schedule Educational Consultation <ArrowRight size={18} />
                 </Link>
 
 
